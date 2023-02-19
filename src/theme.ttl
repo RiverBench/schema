@@ -1,0 +1,31 @@
+@prefix : <https://riverbench.github.io/schema/theme> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+:conceptScheme a skos:ConceptScheme ;
+    skos:prefLabel "RiverBench topic scheme"@en ;
+    skos:definition "Collection of topic concepts used to annotate RiverBench datasets."@en ;
+    skos:hasTopConcept :rootConcept .
+    
+:rootConcept a skos:Concept ;  
+    skos:prefLabel "Root concept"@en .
+
+:temporal a skos:Concept ;
+    skos:prefLabel "Temporal"@en ;
+    skos:definition "Datasets with temporal information."@en ;
+    skos:broader :rootConcept .
+
+:spatial a skos:Concept ;
+    skos:prefLabel "Spatial"@en ;
+    skos:definition "Datasets with spatial information."@en ;
+    skos:broader :rootConcept .
+
+:statistical a skos:Concept ;
+    skos:prefLabel "Statistical"@en ;
+    skos:definition "Datasets with statistical information."@en ;
+    skos:broader :rootConcept .
+
+:sensorData a skos:Concept ;
+    skos:prefLabel "Sensor data"@en ;
+    skos:definition "Datasets with data from sensors, sensor networks, IoT devices, etc."@en ;
+    skos:broader :rootConcept .
+

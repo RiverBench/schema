@@ -1,0 +1,46 @@
+@prefix : <https://riverbench.github.io/dataset/example> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rb: <https://riverbench.github.io/schema/dataset> .
+@prefix rbt: <https://riverbench.github.io/schema/theme> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:exampleDataset
+    a rb:Dataset, dcat:Dataset ;
+    dcterms:conformsTo rb:DatasetStandard ;
+    dcterms:identifier "example" ;
+    dcat:landingPage :exampleDataset ;
+
+    dcterms:title "Example dataset"@en ;
+    dcterms:description "This is an example dataset."@en ;
+    dcterms:issued "2023-01-05"^^xsd:date ;
+    dcterms:modified "2023-01-05"^^xsd:date ;
+    # TODO: Should this be done when tagging the release?
+    dcat:version "1.0.1" ;
+
+    # License and attribution
+    dcterms:license <http://spdx.org/licenses/CC-BY-4.0> ;
+    dcterms:creator [
+        foaf:name "Hagrid Riverbench" ;
+        foaf:nick "Hagrid" ;
+        foaf:homepage <https://example.org/>
+    ], [
+        foaf:name "László Gulyás" ;
+        foaf:nick "Gulyás" ;
+        foaf:homepage <https://example.org/>
+    ] ;
+    
+    # Topics
+    dcat:theme rbt:temporal, rbt:sensorData ;
+
+    # Benchmark profiles
+    dcat:inSeries <https://riverbench.github.io/profile/1/example> ;
+
+    # Technical metadata
+    # TODO
+    
+    # Extra metadata – temporal
+    dcat:temporalResolution "PT15S"^^xsd:duration . # 15 seconds
+
