@@ -373,6 +373,7 @@ rb:graphStreamDistribution rdf:type owl:NamedIndividual ,
 ###  https://riverbench.github.io/schema/dataset#graphs
 rb:graphs rdf:type owl:NamedIndividual ,
                    rb:StreamElementType ;
+          rdfs:comment "Graph streams are a special case of quad streams, where each element contains exactly one named RDF graph."@en ;
           rdfs:label "Graphs"@en .
 
 
@@ -393,6 +394,7 @@ rb:quadStreamDistribution rdf:type owl:NamedIndividual ,
 ###  https://riverbench.github.io/schema/dataset#quads
 rb:quads rdf:type owl:NamedIndividual ,
                   rb:StreamElementType ;
+         rdfs:comment "Quad streams consist of elements, where each element is an RDF dataset."@en ;
          rdfs:label "Quads"@en .
 
 
@@ -406,6 +408,7 @@ rb:tripleStreamDistribution rdf:type owl:NamedIndividual ,
 ###  https://riverbench.github.io/schema/dataset#triples
 rb:triples rdf:type owl:NamedIndividual ,
                     rb:StreamElementType ;
+           rdfs:comment "Quad streams consist of elements, where each element is an RDF graph."@en ;
            rdfs:label "Triples"@en .
 
 

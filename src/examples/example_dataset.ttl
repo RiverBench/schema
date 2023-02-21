@@ -12,14 +12,14 @@
     a rb:Dataset, dcat:Dataset ;
     dcterms:conformsTo <https://riverbench.github.io/schema/dataset/1.0.0> ;
     dcterms:identifier "example" ;
-    dcat:landingPage <https://example.org/dataset/example/1.0.1> ;
 
     dcterms:title "Example dataset"@en ;
     dcterms:description "This is an example dataset."@en ;
     dcterms:issued "2023-01-05"^^xsd:date ;
     dcterms:modified "2023-01-05"^^xsd:date ;
-    # TODO: Should this be done when tagging the release?
+    # TODO: do these two automatically when tagging the release
     dcat:version "1.0.1" ;
+    dcat:landingPage <https://example.org/dataset/example/1.0.1> ;
 
     # License and attribution
     dcterms:license <http://spdx.org/licenses/CC-BY-4.0> ;
@@ -47,7 +47,7 @@
         a dcat:Distribution, rb:Distribution ;
         rb:hasDistributionType rb:partialDistribution, rb:tripleStreamDistribution ;
         dcat:title "1M elements triple stream" ;
-        dcat:downloadURL <https://example.org/dataset/example/1.0.1/dist/triples_1M.tar.gz> ;
+        dcat:downloadURL <https://example.org/dataset/example/1.0.1/dist/stream_1M.tar.gz> ;
         rb:hasStreamElementCount 1000000 ;
         dcat:byteSize 143265346 ;
         dcat:mediaType "application/n-triples" ;
@@ -62,7 +62,7 @@
         a dcat:Distribution, rb:Distribution ;
         rb:hasDistributionType rb:fullDistribution, rb:flatDistribution ;
         dcat:title "Full dataset (flat triples)" ;
-        dcat:downloadURL <https://example.org/dataset/example/1.0.1/dist/flat_triples_full.tar.gz> ;
+        dcat:downloadURL <https://example.org/dataset/example/1.0.1/dist/flat_full.tar.gz> ;
         rb:hasStreamElementCount 1012432 ;
         dcat:byteSize 243265346 ;
         dcat:mediaType "application/n-triples" ;
@@ -82,6 +82,8 @@
         a rb:TimeStreamElementSplit ;
         rb:hasTemporalProperty <https://example.org/timestamp>
     ] ;
+
+    # TODO: move to distributions
     rb:hasStatistics [
         a rb:BlankNodeCountStatistics ;
         rb:mean 2.1 ;
@@ -103,4 +105,3 @@
     
     # Extra metadata – temporal
     dcat:temporalResolution "PT15S"^^xsd:duration . # 15 seconds
-
