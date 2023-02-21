@@ -351,17 +351,23 @@ rb:TopicStreamElementSplit rdf:type owl:Class ;
 
 ###  https://riverbench.github.io/schema/dataset#flatDistribution
 rb:flatDistribution rdf:type owl:NamedIndividual ,
-                             rb:DistributionType .
+                             rb:DistributionType ;
+                    rdfs:label "Flat distribution"@en ;
+                    rdfs:comment "The dataset is distributed as a single flat file."@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#fullDistribution
 rb:fullDistribution rdf:type owl:NamedIndividual ,
-                             rb:DistributionType .
+                             rb:DistributionType ;
+                    rdfs:label "Full distribution"@en ;
+                    rdfs:comment "A full distribution, including all data in the dataset."@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#graphStreamDistribution
 rb:graphStreamDistribution rdf:type owl:NamedIndividual ,
-                                    rb:DistributionType .
+                                    rb:DistributionType ;
+                           rdfs:label "Graph stream distribution"@en ;
+                           rdfs:comment "The dataset is distributed as a stream of RDF graphs."@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#graphs
@@ -372,12 +378,16 @@ rb:graphs rdf:type owl:NamedIndividual ,
 
 ###  https://riverbench.github.io/schema/dataset#partialDistribution
 rb:partialDistribution rdf:type owl:NamedIndividual ,
-                                rb:DistributionType .
+                                rb:DistributionType ;
+                       rdfs:label "Partial distribution"@en ;
+                       rdfs:comment "A partial distribution, including only a subset of the data in the dataset. The rb:hasStreamElementCount property indicates the length of this distribution."@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#quadStreamDistribution
 rb:quadStreamDistribution rdf:type owl:NamedIndividual ,
-                                   rb:DistributionType .
+                                   rb:DistributionType ;
+                          rdfs:label "Quad stream distribution"@en ;
+                          rdfs:comment "The dataset is distributed as a stream of RDF quads."@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#quads
@@ -388,7 +398,9 @@ rb:quads rdf:type owl:NamedIndividual ,
 
 ###  https://riverbench.github.io/schema/dataset#tripleStreamDistribution
 rb:tripleStreamDistribution rdf:type owl:NamedIndividual ,
-                                     rb:DistributionType .
+                                     rb:DistributionType ;
+                            rdfs:label "Triple stream distribution"@en ;
+                            rdfs:comment "The dataset is distributed as a stream of RDF triples."@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#triples
