@@ -37,6 +37,8 @@
     dcat:theme rbt:temporal, rbt:sensorData ;
 
     # Benchmark profiles
+    # TODO: generate automatically
+    # The profiles will be query-defined elsewhere, and then the metadata on both sides will be generated automatically
     dcat:inSeries <https://riverbench.github.io/profile/1/example> ;
 
     # Distributions
