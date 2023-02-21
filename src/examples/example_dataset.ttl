@@ -1,17 +1,18 @@
-@prefix : <https://riverbench.github.io/dataset/example> .
+@prefix : <https://riverbench.github.io/dataset/example#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rb: <https://riverbench.github.io/schema/dataset> .
-@prefix rbt: <https://riverbench.github.io/schema/theme> .
+@prefix rb: <https://riverbench.github.io/schema/dataset#> .
+@prefix rbt: <https://riverbench.github.io/schema/theme#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :exampleDataset
     a rb:Dataset, dcat:Dataset ;
-    dcterms:conformsTo rb:DatasetStandard ;
+    dcterms:conformsTo <https://riverbench.github.io/schema/dataset/1.0.0> ;
     dcterms:identifier "example" ;
-    dcat:landingPage :exampleDataset ;
+    dcat:landingPage <https://example.org/dataset/example/1.0.1> ;
 
     dcterms:title "Example dataset"@en ;
     dcterms:description "This is an example dataset."@en ;
@@ -38,8 +39,65 @@
     # Benchmark profiles
     dcat:inSeries <https://riverbench.github.io/profile/1/example> ;
 
+    # Distributions
+    # TODO: This will be generated automatically
+    dcat:distribution [
+        a dcat:Distribution, rb:Distribution ;
+        rb:hasDistributionType rb:partialDistribution, rb:tripleStreamDistribution ;
+        dcat:title "1M elements triple stream" ;
+        dcat:downloadURL <https://example.org/dataset/example/1.0.1/dist/triples_1M.tar.gz> ;
+        rb:hasStreamElementCount 1000000 ;
+        dcat:byteSize 143265346 ;
+        dcat:mediaType "application/n-triples" ;
+        dcat:compressFormat "application/gzip" ;
+        dcat:packageFormat "application/tar" ;
+        spdx:checksum [
+            a spdx:Checksum ;
+            spdx:algorithm spdx:checksumAlgorithm_sha1 ;
+            spdx:checksumValue "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+        ] ;
+    ] , [
+        a dcat:Distribution, rb:Distribution ;
+        rb:hasDistributionType rb:fullDistribution, rb:flatDistribution ;
+        dcat:title "Full dataset (flat triples)" ;
+        dcat:downloadURL <https://example.org/dataset/example/1.0.1/dist/flat_triples_full.tar.gz> ;
+        rb:hasStreamElementCount 1012432 ;
+        dcat:byteSize 243265346 ;
+        dcat:mediaType "application/n-triples" ;
+        dcat:compressFormat "application/gzip" ;
+        spdx:checksum [
+            a spdx:Checksum ;
+            spdx:algorithm spdx:checksumAlgorithm_sha1 ;
+            spdx:checksumValue "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2"
+        ] ;
+    ] ;
+
     # Technical metadata
-    # TODO
+    rb:usesOntology <https://example.org/ontology>, <http://www.w3.org/ns/dcat> ;
+    rb:hasStreamElementCount 1012432 ;
+    rb:hasStreamElementType rb:triples ;
+    rb:hasStreamElementSplit [
+        a rb:TimeStreamElementSplit ;
+        rb:hasTemporalProperty <https://example.org/timestamp>
+    ] ;
+    rb:hasStatistics [
+        a rb:BlankNodeCountStatistics ;
+        rb:mean 2.1 ;
+        rb:standardDeviation 0.5 ;
+        rb:minimum 0 ;
+        rb:maximum 6 ;
+        rb:sum 52433 ;
+        rb:uniqueCount 21003
+    ] , [
+        a rb:TripleCountStatistics ;
+        rb:mean 2.1 ;
+        rb:standardDeviation 0.5 ;
+        rb:minimum 0 ;
+        rb:maximum 6 ;
+        rb:sum 52433 ;
+        rb:uniqueCount 21003
+    ] ;
+    # etc., there is a lot of statistics in the ontology, but they are generated automatically
     
     # Extra metadata – temporal
     dcat:temporalResolution "PT15S"^^xsd:duration . # 15 seconds

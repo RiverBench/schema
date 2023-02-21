@@ -15,16 +15,36 @@
 #    Annotation properties
 #################################################################
 
+###  http://www.w3.org/2000/01/rdf-schema#description
+rdfs:description rdf:type owl:AnnotationProperty .
+
+
 ###  https://riverbench.github.io/schema/dataset#streamElementTopicNote
 rb:streamElementTopicNote rdf:type owl:AnnotationProperty ;
                           rdfs:comment "Gives more details on how the stream element split by topic was performed."@en ;
                           rdfs:label "Stream element topic note"@en ;
-                          rdfs:domain rb:TopicElementSplit .
+                          rdfs:domain rb:TopicStreamElementSplit .
 
 
 #################################################################
 #    Object Properties
 #################################################################
+
+###  https://riverbench.github.io/schema/dataset#hasDistributionType
+rb:hasDistributionType rdf:type owl:ObjectProperty ;
+                       rdfs:domain rb:Distribution ;
+                       rdfs:range rb:DistributionType ;
+                       rdfs:comment "Indicates the type of RiverBench dataset distribution"@en ;
+                       rdfs:label "Has distribution type"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#hasStatistics
+rb:hasStatistics rdf:type owl:ObjectProperty ;
+                 rdfs:domain rb:Dataset ;
+                 rdfs:range rb:DatasetStatistics ;
+                 rdfs:comment "Has a dataset statistics object"@en ;
+                 rdfs:label "Has statistics"@en .
+
 
 ###  https://riverbench.github.io/schema/dataset#hasStreamElementSplit
 rb:hasStreamElementSplit rdf:type owl:ObjectProperty ;
@@ -44,7 +64,7 @@ rb:hasStreamElementType rdf:type owl:ObjectProperty ;
 
 ###  https://riverbench.github.io/schema/dataset#hasTemporalProperty
 rb:hasTemporalProperty rdf:type owl:ObjectProperty ;
-                       rdfs:domain rb:TimeElementSplit ;
+                       rdfs:domain rb:TimeStreamElementSplit ;
                        rdfs:comment "The IRI of the property that is used in the stream to denote time at which the event occured."@en ;
                        rdfs:label "Has temporal property"@en .
 
@@ -71,15 +91,32 @@ rb:conformsToRdf11 rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf rb:conformanceProperty ;
                    rdfs:range xsd:boolean ;
                    rdfs:comment "Whether the dataset is RDF 1.1-compliant, i.e., does not use any non-standard features, like generalized triples."@en ;
-                   rdfs:label "Conforms to W3C RDF 1.1 specification"@en .
+                   rdfs:label "Conforms to W3C RDF 1.1 specification"@en ;
+                   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/> .
 
 
-###  https://riverbench.github.io/schema/dataset#conformsToRdfStarDraft_08_12_2022
-rb:conformsToRdfStarDraft_08_12_2022 rdf:type owl:DatatypeProperty ;
-                                     rdfs:subPropertyOf rb:conformanceProperty ;
-                                     rdfs:range xsd:boolean ;
-                                     rdfs:comment "Whether the dataset is RDF-star compliant, i.e., does not use any non-standard features. Note that all standard RDF 1.1 datasets also qualify, as RDF-star is a superset of RDF 1.1."@en ;
-                                     rdfs:label "Conforms to W3C RDF-star draft specification as of December 8, 2022"@en .
+###  https://riverbench.github.io/schema/dataset#conformsToRdfStarDraft_20211217
+rb:conformsToRdfStarDraft_20211217 rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf rb:conformanceProperty ;
+                                   rdfs:range xsd:boolean ;
+                                   rdfs:comment "Whether the dataset is RDF-star compliant, i.e., does not use any non-standard features. Note that all standard RDF 1.1 datasets also qualify, as RDF-star is a superset of RDF 1.1."@en ;
+                                   rdfs:label "Conforms to W3C RDF-star draft specification as of December 17, 2021"@en ;
+                                   rdfs:seeAlso <https://www.w3.org/2021/12/rdf-star.html> .
+
+
+###  https://riverbench.github.io/schema/dataset#hasStreamLength
+rb:hasStreamLength rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:description "Number of elements in the stream"@en ;
+                   rdfs:label "Has stream length"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#maximum
+rb:maximum rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf rb:statisticalProperty ;
+           rdfs:range xsd:decimal ;
+           rdfs:comment "Maximum value of a distribution"@en ;
+           rdfs:label "Maximum"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#mean
@@ -88,6 +125,14 @@ rb:mean rdf:type owl:DatatypeProperty ;
         rdfs:range xsd:decimal ;
         rdfs:comment "Arithmetic mean of a distribution"@en ;
         rdfs:label "Mean"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#minimum
+rb:minimum rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf rb:statisticalProperty ;
+           rdfs:range xsd:decimal ;
+           rdfs:comment "Minimum value of a distribution"@en ;
+           rdfs:label "Minimum"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#standardDeviation
@@ -107,7 +152,7 @@ rb:statisticalProperty rdf:type owl:DatatypeProperty ;
 ###  https://riverbench.github.io/schema/dataset#streamElementStatementCount
 rb:streamElementStatementCount rdf:type owl:DatatypeProperty ,
                                         owl:FunctionalProperty ;
-                               rdfs:domain rb:StatementCountElementSplit ;
+                               rdfs:domain rb:StatementCountStreamElementSplit ;
                                rdfs:range xsd:integer ;
                                rdfs:comment "The number of statements in each stream element."@en ;
                                rdfs:label "Stream element statement count"@en .
@@ -129,20 +174,22 @@ rb:uniqueCount rdf:type owl:DatatypeProperty ;
                rdfs:label "Unique count"@en .
 
 
-###  https://riverbench.github.io/schema/dataset#usesGeneralizedGraphs
-rb:usesGeneralizedGraphs rdf:type owl:DatatypeProperty ;
-                         rdfs:subPropertyOf rb:conformanceProperty ;
-                         rdfs:range xsd:boolean ;
-                         rdfs:comment "Whether the dataset uses the non-standard generalized graphs feature."@en ;
-                         rdfs:label "Uses generalized graphs"@en .
+###  https://riverbench.github.io/schema/dataset#usesGeneralizedRdfDatasets
+rb:usesGeneralizedRdfDatasets rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf rb:conformanceProperty ;
+                              rdfs:range xsd:boolean ;
+                              rdfs:comment "Whether the dataset uses the non-standard generalized datasets feature. A \"dataset\" here is used in the same meaning as in the RDF 1.1 specification."@en ;
+                              rdfs:label "Uses generalized RDF datasets"@en ;
+                              rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#section-generalized-rdf> .
 
 
-###  https://riverbench.github.io/schema/dataset#usesGeneralizedStatements
-rb:usesGeneralizedStatements rdf:type owl:DatatypeProperty ;
-                             rdfs:subPropertyOf rb:conformanceProperty ;
-                             rdfs:range xsd:boolean ;
-                             rdfs:comment "Whether the dataset uses the non-standard generalized statements feature"@en ;
-                             rdfs:label "Uses generalized statements"@en .
+###  https://riverbench.github.io/schema/dataset#usesGeneralizedTriples
+rb:usesGeneralizedTriples rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf rb:conformanceProperty ;
+                          rdfs:range xsd:boolean ;
+                          rdfs:comment "Whether the dataset uses the non-standard generalized triples feature"@en ;
+                          rdfs:label "Uses generalized triples"@en ;
+                          rdfs:seeAlso "https://www.w3.org/TR/rdf11-concepts/#section-generalized-rdf"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#usesRdfStar
@@ -150,7 +197,8 @@ rb:usesRdfStar rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf rb:conformanceProperty ;
                rdfs:range xsd:boolean ;
                rdfs:comment "Whether the dataset uses RDF-star features."@en ;
-               rdfs:label "Uses RDF-star"@en .
+               rdfs:label "Uses RDF-star"@en ;
+               rdfs:seeAlso "https://www.w3.org/2021/12/rdf-star.html"@en .
 
 
 #################################################################
@@ -161,11 +209,15 @@ rb:usesRdfStar rdf:type owl:DatatypeProperty ;
 dcat:Dataset rdf:type owl:Class .
 
 
+###  http://www.w3.org/ns/dcat#Distribution
+dcat:Distribution rdf:type owl:Class .
+
+
 ###  https://riverbench.github.io/schema/dataset#BlankNodeCountStatistics
 rb:BlankNodeCountStatistics rdf:type owl:Class ;
                             rdfs:subClassOf rb:DatasetStatistics ;
-                            rdfs:label "Blank node count statistics"@en ;
-                            rdfs:description "Statistics about the number of blank nodes in the dataset."@en .
+                            rdfs:description "Statistics about the number of blank nodes in the dataset."@en ;
+                            rdfs:label "Blank node count statistics"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#Dataset
@@ -181,76 +233,87 @@ rb:DatasetStatistics rdf:type owl:Class .
 ###  https://riverbench.github.io/schema/dataset#DatatypeLiteralCountStatistics
 rb:DatatypeLiteralCountStatistics rdf:type owl:Class ;
                                   rdfs:subClassOf rb:DatasetStatistics ;
-                                  rdfs:label "Datatype literal count statistics"@en ;
-                                  rdfs:description "Statistics about the number of datatype literals (of type rdf:langString) in the dataset."@en .
+                                  rdfs:description "Statistics about the number of datatype literals (of type rdf:langString) in the dataset."@en ;
+                                  rdfs:label "Datatype literal count statistics"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#Distribution
+rb:Distribution rdf:type owl:Class ;
+                rdfs:subClassOf dcat:Distribution ;
+                rdfs:label "RiverBench dataset distribution"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#DistributionType
+rb:DistributionType rdf:type owl:Class ;
+                    rdfs:label "RiverBench distribution type"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#GraphCountStatistics
 rb:GraphCountStatistics rdf:type owl:Class ;
                         rdfs:subClassOf rb:DatasetStatistics ;
-                        rdfs:label "Graph count statistics"@en ;
-                        rdfs:description "Statistics about the number of RDF graphs in the dataset."@en .
+                        rdfs:description "Statistics about the number of RDF graphs in the dataset."@en ;
+                        rdfs:label "Graph count statistics"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#IriCountStatistics
 rb:IriCountStatistics rdf:type owl:Class ;
                       rdfs:subClassOf rb:DatasetStatistics ;
-                      rdfs:label "IRI count statistics"@en ;
-                      rdfs:description "Statistics about the number of IRIs in the dataset."@en .
+                      rdfs:description "Statistics about the number of IRIs in the dataset."@en ;
+                      rdfs:label "IRI count statistics"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#LangStringCountStatistics
 rb:LangStringCountStatistics rdf:type owl:Class ;
                              rdfs:subClassOf rb:DatasetStatistics ;
-                             rdfs:label "Language string count statistics"@en ;
-                             rdfs:description "Statistics about the number of language literals in the dataset."@en .
+                             rdfs:description "Statistics about the number of language literals in the dataset."@en ;
+                             rdfs:label "Language string count statistics"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#LiteralCountStatistics
 rb:LiteralCountStatistics rdf:type owl:Class ;
                           rdfs:subClassOf rb:DatasetStatistics ;
-                          rdfs:label "Literal count statistics"@en ;
-                          rdfs:description "Statistics about the number of literals in the dataset."@en .
+                          rdfs:description "Statistics about the number of literals in the dataset."@en ;
+                          rdfs:label "Literal count statistics"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#ObjectCountStatistics
 rb:ObjectCountStatistics rdf:type owl:Class ;
                          rdfs:subClassOf rb:DatasetStatistics ;
-                         rdfs:label "Object count statistics"@en ;
-                         rdfs:description "Statistics about the number of objects in the dataset."@en .
-
-
-###  https://riverbench.github.io/schema/dataset#SimpleLiteralCountStatistics
-rb:SimpleLiteralCountStatistics rdf:type owl:Class ;
-                                rdfs:subClassOf rb:DatasetStatistics ;
-                                rdfs:label "Simple literal count statistics"@en ;
-                                rdfs:description "Statistics about the number of simple literals (of type xsd:string) in the dataset."@en .
+                         rdfs:description "Statistics about the number of objects in the dataset."@en ;
+                         rdfs:label "Object count statistics"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#PredicateCountStatistics
 rb:PredicateCountStatistics rdf:type owl:Class ;
-                           rdfs:subClassOf rb:DatasetStatistics ;
-                           rdfs:label "Predicate count statistics"@en ;
-                           rdfs:description "Statistics about the number of predicates in the dataset."@en .
+                            rdfs:subClassOf rb:DatasetStatistics ;
+                            rdfs:description "Statistics about the number of predicates in the dataset."@en ;
+                            rdfs:label "Predicate count statistics"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#QuotedTripleCountStatistics
 rb:QuotedTripleCountStatistics rdf:type owl:Class ;
                                rdfs:subClassOf rb:DatasetStatistics ;
-                               rdfs:label "Quoted triple count statistics"@en ;
-                               rdfs:description "Statistics about the number of quoted triples in the dataset."@en .
+                               rdfs:description "Statistics about the number of quoted triples in the dataset."@en ;
+                               rdfs:label "Quoted triple count statistics"@en .
 
 
-###  https://riverbench.github.io/schema/dataset#StatementCountElementSplit
-rb:StatementCountElementSplit rdf:type owl:Class ;
-                              rdfs:subClassOf rb:StreamElementSplit .
+###  https://riverbench.github.io/schema/dataset#SimpleLiteralCountStatistics
+rb:SimpleLiteralCountStatistics rdf:type owl:Class ;
+                                rdfs:subClassOf rb:DatasetStatistics ;
+                                rdfs:description "Statistics about the number of simple literals (of type xsd:string) in the dataset."@en ;
+                                rdfs:label "Simple literal count statistics"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#StatementCountStatistics
 rb:StatementCountStatistics rdf:type owl:Class ;
                             rdfs:subClassOf rb:DatasetStatistics ;
-                            rdfs:label "Statement count statistics"@en ;
-                            rdfs:description "Statistics about the number of RDF statements in the dataset."@en .
+                            rdfs:description "Statistics about the number of RDF statements in the dataset."@en ;
+                            rdfs:label "Statement count statistics"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#StatementCountStreamElementSplit
+rb:StatementCountStreamElementSplit rdf:type owl:Class ;
+                                    rdfs:subClassOf rb:StreamElementSplit .
 
 
 ###  https://riverbench.github.io/schema/dataset#StreamElementSplit
@@ -268,23 +331,38 @@ rb:StreamElementType rdf:type owl:Class ;
 ###  https://riverbench.github.io/schema/dataset#SubjectCountStatistics
 rb:SubjectCountStatistics rdf:type owl:Class ;
                           rdfs:subClassOf rb:DatasetStatistics ;
-                          rdfs:label "Subject count statistics"@en ;
-                          rdfs:description "Statistics about the number of subjects in the dataset."@en .
+                          rdfs:description "Statistics about the number of subjects in the dataset."@en ;
+                          rdfs:label "Subject count statistics"@en .
 
 
-###  https://riverbench.github.io/schema/dataset#TimeElementSplit
-rb:TimeElementSplit rdf:type owl:Class ;
-                    rdfs:subClassOf rb:StreamElementSplit .
+###  https://riverbench.github.io/schema/dataset#TimeStreamElementSplit
+rb:TimeStreamElementSplit rdf:type owl:Class ;
+                          rdfs:subClassOf rb:StreamElementSplit .
 
 
-###  https://riverbench.github.io/schema/dataset#TopicElementSplit
-rb:TopicElementSplit rdf:type owl:Class ;
-                     rdfs:subClassOf rb:StreamElementSplit .
+###  https://riverbench.github.io/schema/dataset#TopicStreamElementSplit
+rb:TopicStreamElementSplit rdf:type owl:Class ;
+                           rdfs:subClassOf rb:StreamElementSplit .
 
 
 #################################################################
 #    Individuals
 #################################################################
+
+###  https://riverbench.github.io/schema/dataset#flatDistribution
+rb:flatDistribution rdf:type owl:NamedIndividual ,
+                             rb:DistributionType .
+
+
+###  https://riverbench.github.io/schema/dataset#fullDistribution
+rb:fullDistribution rdf:type owl:NamedIndividual ,
+                             rb:DistributionType .
+
+
+###  https://riverbench.github.io/schema/dataset#graphStreamDistribution
+rb:graphStreamDistribution rdf:type owl:NamedIndividual ,
+                                    rb:DistributionType .
+
 
 ###  https://riverbench.github.io/schema/dataset#graphs
 rb:graphs rdf:type owl:NamedIndividual ,
@@ -292,10 +370,25 @@ rb:graphs rdf:type owl:NamedIndividual ,
           rdfs:label "Graphs"@en .
 
 
+###  https://riverbench.github.io/schema/dataset#partialDistribution
+rb:partialDistribution rdf:type owl:NamedIndividual ,
+                                rb:DistributionType .
+
+
+###  https://riverbench.github.io/schema/dataset#quadStreamDistribution
+rb:quadStreamDistribution rdf:type owl:NamedIndividual ,
+                                   rb:DistributionType .
+
+
 ###  https://riverbench.github.io/schema/dataset#quads
 rb:quads rdf:type owl:NamedIndividual ,
                   rb:StreamElementType ;
          rdfs:label "Quads"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#tripleStreamDistribution
+rb:tripleStreamDistribution rdf:type owl:NamedIndividual ,
+                                     rb:DistributionType .
 
 
 ###  https://riverbench.github.io/schema/dataset#triples
