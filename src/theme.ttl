@@ -29,3 +29,7 @@
     skos:definition "Datasets with data from sensors, sensor networks, IoT devices, etc."@en ;
     skos:broader :rootConcept .
 
+:abstract a skos:Concept ;
+    skos:prefLabel "Abstract data"@en ;
+    skos:definition "Datasets with abstract information (unrelated to the real world)."@en ;
+    skos:broader :rootConcept .
