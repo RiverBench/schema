@@ -101,6 +101,11 @@
         a rb:TimeStreamElementSplit ;
         rb:hasTemporalProperty <https://example.org/timestamp>
     ] ;
+    rb:conformsToRdf11 true ;
+    rb:conformsToRdfStarDraft_20211217 true ;
+    rb:usesGeneralizedRdfDatasets false ;
+    rb:usesGeneralizedTriples false ;
+    rb:usesRdfStar false ;
     
     # Extra metadata – temporal
     dcat:temporalResolution "PT15S"^^xsd:duration . # 15 seconds

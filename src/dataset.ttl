@@ -231,7 +231,7 @@ rb:Dataset rdf:type owl:Class ;
 ###  https://riverbench.github.io/schema/dataset#DatatypeLiteralCountStatistics
 rb:DatatypeLiteralCountStatistics rdf:type owl:Class ;
                                   rdfs:subClassOf rb:Statistics ;
-                                  rdfs:description "Statistics about the number of datatype literals (of type rdf:langString) in the dataset."@en ;
+                                  rdfs:description "Statistics about the number of datatype literals (NOT of type rdf:langString) in the dataset."@en ;
                                   rdfs:label "Datatype literal count statistics"@en .
 
 
@@ -281,6 +281,13 @@ rb:ObjectCountStatistics rdf:type owl:Class ;
                          rdfs:label "Object count statistics"@en .
 
 
+###  https://riverbench.github.io/schema/dataset#PlainLiteralCountStatistics
+rb:PlainLiteralCountStatistics rdf:type owl:Class ;
+                               rdfs:subClassOf rb:Statistics ;
+                               rdfs:description "Statistics about the number of simple literals (of type xsd:string) in the dataset."@en ;
+                               rdfs:label "Simple literal count statistics"@en .
+
+
 ###  https://riverbench.github.io/schema/dataset#PredicateCountStatistics
 rb:PredicateCountStatistics rdf:type owl:Class ;
                             rdfs:subClassOf rb:Statistics ;
@@ -293,13 +300,6 @@ rb:QuotedTripleCountStatistics rdf:type owl:Class ;
                                rdfs:subClassOf rb:Statistics ;
                                rdfs:description "Statistics about the number of quoted triples in the dataset."@en ;
                                rdfs:label "Quoted triple count statistics"@en .
-
-
-###  https://riverbench.github.io/schema/dataset#SimpleLiteralCountStatistics
-rb:SimpleLiteralCountStatistics rdf:type owl:Class ;
-                                rdfs:subClassOf rb:Statistics ;
-                                rdfs:description "Statistics about the number of simple literals (of type xsd:string) in the dataset."@en ;
-                                rdfs:label "Simple literal count statistics"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#StatementCountStatistics

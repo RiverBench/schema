@@ -47,75 +47,103 @@
       sh:maxCount 1 ;
       sh:datatype xsd:string ;
     ] ,
-	[
+	  [
       sh:path dcterms:title ;
       sh:minCount 1 ;
       sh:datatype rdf:langString ;
       sh:uniqueLang true ;
     ] ,
-	[
+	  [
       sh:path dcterms:description ;
       sh:minCount 1 ;
       sh:datatype rdf:langString ;
       sh:uniqueLang true ;
     ] ,
-	[
+	  [
       sh:path dcterms:issued ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:datatype xsd:date ;
     ] ,
-	[
+	  [
       sh:path dcterms:modified ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:datatype xsd:date ;
     ] ,
-
-	# Attribution
-	[
+	  # Attribution
+	  [
       sh:path dcterms:license ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:nodeKind sh:IRI ;
       sh:pattern "^http://spdx.org/licenses/" ;
     ] ,
-	[
+	  [
       sh:path dcterms:creator ;
       sh:minCount 1 ;
       sh:nodeKind sh:BlankNodeOrIRI ;
     ] ,
-
-	# Topics
-	[
+	  # Topics
+	  [
       sh:path dcat:theme ;
       sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
       sh:pattern "^https://riverbench.github.io/schema/theme#" ;
     ] ,
-
-	# Technical metadata
-	[
+	  # Technical metadata
+	  [
       sh:path rb:usesOntology ;
       sh:minCount 1 ;
       sh:nodeKind sh:IRI ;
     ] ,
-	[
+	  [
       sh:path rb:hasStreamElementCount ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:datatype xsd:integer ;
     ] ,
-	[
+	  [
       sh:path rb:hasStreamElementType ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:in (rb:triples rb:graphs rb:quads) ;
     ] ,
-	[
+	  [
       sh:path rb:hasStreamElementSplit ;
       sh:nodeKind sh:BlankNodeOrIRI ;
       sh:node :StreamElementSplitShape ;
+    ] ,
+    # Conformance properties
+    [
+      sh:path rb:conformsToRdf11 ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:boolean ;
+    ] ,
+    [
+      sh:path rb:conformsToRdfStarDraft_20211217 ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:boolean ;
+    ] ,
+    [
+      sh:path rb:usesGeneralizedRdfDatasets ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:boolean ;
+    ] ,
+    [
+      sh:path rb:usesGeneralizedTriples ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:boolean ;
+    ] ,
+    [
+      sh:path rb:usesRdfStar ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:boolean ;
     ]
 .
 
