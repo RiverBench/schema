@@ -1,0 +1,449 @@
+# baseURI: http://www.w3.org/ns/dcat
+# imports: http://purl.org/dc/terms/
+# imports: http://www.w3.org/2004/02/skos/core
+# imports: http://www.w3.org/ns/prov-o#
+# prefix: dcat
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.w3.org/ns/dcat>
+  a owl:Ontology ;
+  dct:contributor [
+      a foaf:Person ;
+      sdo:affiliation [
+          foaf:homepage <https://csiro.au> ;
+          foaf:name "Commonwealth Scientific and Industrial Research Organisation" ;
+        ] ;
+      rdfs:seeAlso <https://orcid.org/0000-0002-3884-3420> ;
+      foaf:name "Simon J D Cox" ;
+      foaf:workInfoHomepage <http://people.csiro.au/Simon-Cox> ;
+    ] ;
+  dct:contributor [
+      sdo:affiliation <http://www.w3.org/data#W3C> ;
+      rdfs:seeAlso <http://philarcher.org/foaf.rdf#me> ;
+      foaf:homepage <http://www.w3.org/People/all#phila> ;
+      foaf:name "Phil Archer" ;
+    ] ;
+  dct:contributor [
+      sdo:affiliation [
+          foaf:homepage <http://ec.europa.eu/dgs/informatics/> ;
+          foaf:name "European Commission, DG DIGIT" ;
+        ] ;
+      foaf:name "Vassilios Peristeras" ;
+    ] ;
+  dct:contributor [
+      sdo:affiliation [
+          foaf:homepage <http://okfn.org> ;
+          foaf:name "Open Knowledge Foundation" ;
+        ] ;
+      foaf:name "Rufus Pollock" ;
+    ] ;
+  dct:contributor [
+      sdo:affiliation [
+          foaf:homepage <http://stfc.ac.uk> ;
+          foaf:name "Science and Technology Facilities Council, UK" ;
+        ] ;
+      rdfs:seeAlso <https://orcid.org/0000-0003-3499-8262> ;
+      foaf:homepage <https://agbeltran.github.io> ;
+      foaf:name "Alejandra Gonzalez-Beltran" ;
+    ] ;
+  dct:contributor [
+      sdo:affiliation [
+          foaf:homepage <http://www.refinitiv.com> ;
+          foaf:name "Refinitiv" ;
+        ] ;
+      foaf:name "David Browning" ;
+    ] ;
+  dct:contributor [
+      rdfs:seeAlso <http://makxdekkers.com/makxdekkers.rdf#me> ;
+      foaf:homepage <http://makxdekkers.com/> ;
+      foaf:name "Makx Dekkers" ;
+    ] ;
+  dct:contributor [
+      rdfs:seeAlso <http://www.eurecom.fr/~atemezin/gatemezing-foaf.rdf> ;
+      foaf:name "Ghislain Auguste Atemezing" ;
+    ] ;
+  dct:contributor [
+      rdfs:seeAlso <https://jakub.klímek.com/#me> ;
+      foaf:homepage <https://jakub.klímek.com/> ;
+      foaf:name "Jakub Klímek" ;
+    ] ;
+  dct:contributor [
+      rdfs:seeAlso <https://orcid.org/0000-0001-5648-2713> ;
+      foaf:homepage <http://www.imati.cnr.it/index.php/people/8-curricula/178-riccardo-albertoni> ;
+      foaf:homepage <https://w3id.org/people/ralbertoni/> ;
+      foaf:name "Riccardo Albertoni" ;
+    ] ;
+  dct:contributor [
+      rdfs:seeAlso <https://orcid.org/0000-0001-9300-2694> ;
+      foaf:homepage <http://www.andrea-perego.name/foaf/#me> ;
+      foaf:name "Andrea Perego" ;
+    ] ;
+  dct:contributor [
+      foaf:homepage <http://www.asahi-net.or.jp/~ax2s-kmtn/> ;
+      foaf:name "Shuji Kamitsuna" ;
+    ] ;
+  dct:contributor [
+      foaf:name "Boris Villazón-Terrazas" ;
+    ] ;
+  dct:contributor [
+      foaf:name "Marios Meimaris" ;
+    ] ;
+  dct:contributor [
+      foaf:name "Martin Alvarez-Espinar" ;
+    ] ;
+  dct:contributor [
+      foaf:name "Richard Cyganiak" ;
+    ] ;
+  dct:creator [
+      rdfs:seeAlso <http://fadmaa.me/foaf.ttl> ;
+      foaf:name "Fadi Maali" ;
+    ] ;
+  dct:creator [
+      foaf:name "John Erickson" ;
+    ] ;
+  dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dct:modified "2012-04-24"^^xsd:date ;
+  dct:modified "2013-09-20"^^xsd:date ;
+  dct:modified "2013-11-28"^^xsd:date ;
+  dct:modified "2017-12-19"^^xsd:date ;
+  dct:modified "2019" ;
+  dct:modified "2020-11-30"^^xsd:date ;
+  dct:modified "2021-09-14"^^xsd:date ;
+  rdfs:comment "DCAT is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. By using DCAT to describe datasets in data catalogs, publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs. It further enables decentralized publishing of catalogs and facilitates federated dataset search across sites. Aggregated DCAT metadata can serve as a manifest file to facilitate digital preservation. DCAT is defined at http://www.w3.org/TR/vocab-dcat/. Any variance between that normative document and this schema is an error in this schema."@en ;
+  rdfs:label "The data catalog vocabulary"@en ;
+  owl:imports dct: ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  owl:imports <http://www.w3.org/ns/prov-o#> ;
+  foaf:maker [
+      foaf:homepage <http://www.w3.org/2011/gld/> ;
+      foaf:name "Government Linked Data WG" ;
+    ] ;
+.
+dcat:Catalog
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:comment "A curated collection of metadata about resources (e.g., datasets and data services in the context of a data catalog)."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "Catalog"@en ;
+  rdfs:subClassOf dcat:Dataset ;
+.
+dcat:CatalogRecord
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:comment "A record in a data catalog, describing the registration of a single dataset or data service."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "Catalog Record"@en ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:allValuesFrom dcat:Resource ;
+      owl:onProperty foaf:primaryTopic ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty foaf:primaryTopic ;
+    ] ;
+.
+dcat:DataService
+  a owl:Class ;
+  rdfs:comment "A site or end-point providing operations related to the discovery of, access to, or processing functions on, data or related resources."@en ;
+  rdfs:label "Data service"@en ;
+  rdfs:subClassOf dctype:Service ;
+  rdfs:subClassOf dcat:Resource ;
+.
+dcat:Dataset
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:comment "A collection of data, published or curated by a single source, and available for access or download in one or more representations."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "Dataset"@en ;
+  rdfs:subClassOf dcat:Resource ;
+.
+dcat:Distribution
+  a rdfs:Class ;
+  a owl:Class ;
+  rdfs:comment "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "Distribution"@en ;
+.
+dcat:Relationship
+  a owl:Class ;
+  rdfs:comment "An association class for attaching additional information to a relationship between DCAT Resources."@en ;
+  rdfs:label "Relationship"@en ;
+.
+dcat:Resource
+  a owl:Class ;
+  rdfs:comment "Resource published or curated by a single agent."@en ;
+  rdfs:label "Catalogued resource"@en ;
+.
+dcat:Role
+  a owl:Class ;
+  rdfs:comment "A role is the function of a resource or agent with respect to another resource, in the context of resource attribution or resource relationships."@en ;
+  rdfs:label "Role"@en ;
+  rdfs:seeAlso dcat:hadRole ;
+  rdfs:subClassOf skos:Concept ;
+.
+dcat:accessService
+  a owl:ObjectProperty ;
+  rdfs:comment "A site or end-point that gives access to the distribution of the dataset."@en ;
+  rdfs:label "data access service"@en ;
+  rdfs:range dcat:DataService ;
+.
+dcat:accessURL
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "A URL of a resource that gives access to a distribution of the dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred."@en ;
+  rdfs:domain dcat:Distribution ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "access address"@en ;
+  rdfs:range rdfs:Resource ;
+  owl:propertyChainAxiom (
+      dcat:accessService
+      dcat:endpointURL
+    ) ;
+.
+dcat:bbox
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  rdfs:domain dct:Location ;
+  rdfs:label "bounding box"@en ;
+  rdfs:range rdfs:Literal ;
+.
+dcat:byteSize
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  rdfs:comment "The size of a distribution in bytes."@en ;
+  rdfs:domain dcat:Distribution ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "byte size"@en ;
+  rdfs:range rdfs:Literal ;
+.
+dcat:catalog
+  a owl:ObjectProperty ;
+  rdfs:comment "A catalog whose contents are of interest in the context of this catalog."@en ;
+  rdfs:domain dcat:Catalog ;
+  rdfs:label "catalog"@en ;
+  rdfs:range dcat:Catalog ;
+  rdfs:subPropertyOf dct:hasPart ;
+  rdfs:subPropertyOf rdfs:member ;
+.
+dcat:centroid
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  rdfs:domain dct:Location ;
+  rdfs:label "centroid"@en ;
+  rdfs:range rdfs:Literal ;
+.
+dcat:compressFormat
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "The compression format of the distribution in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file."@en ;
+  rdfs:domain dcat:Distribution ;
+  rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
+  rdfs:label "compression format"@en ;
+  rdfs:range dct:MediaType ;
+  rdfs:subPropertyOf dct:format ;
+.
+dcat:contactPoint
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "Relevant contact information for the catalogued resource. Use of vCard is recommended."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "contact point"@en ;
+  rdfs:range vcard:Kind ;
+.
+dcat:dataset
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "A collection of data that is listed in the catalog."@en ;
+  rdfs:domain dcat:Catalog ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "dataset"@en ;
+  rdfs:range dcat:Dataset ;
+  rdfs:subPropertyOf dct:hasPart ;
+  rdfs:subPropertyOf rdfs:member ;
+.
+dcat:distribution
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "An available distribution of the dataset."@en ;
+  rdfs:domain dcat:Dataset ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "distribution"@en ;
+  rdfs:range dcat:Distribution ;
+  rdfs:subPropertyOf dct:relation ;
+.
+dcat:downloadURL
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "The URL of the downloadable file in a given format. E.g. CSV file or RDF file. The format is indicated by the distribution's dct:format and/or dcat:mediaType."@en ;
+  rdfs:domain dcat:Distribution ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "download URL"@en ;
+  rdfs:range rdfs:Resource ;
+.
+dcat:endDate
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  rdfs:domain dct:PeriodOfTime ;
+  rdfs:label "end date"@en ;
+  rdfs:range rdfs:Literal ;
+.
+dcat:endpointDescription
+  a owl:ObjectProperty ;
+  rdfs:comment "A description of the service end-point, including its operations, parameters etc."@en ;
+  rdfs:domain dcat:DataService ;
+  rdfs:label "description of service end-point"@en ;
+.
+dcat:endpointURL
+  a owl:ObjectProperty ;
+  rdfs:comment "The root location or primary endpoint of the service (a web-resolvable IRI)."@en ;
+  rdfs:domain dcat:DataService ;
+  rdfs:label "service end-point"@en ;
+  rdfs:range rdfs:Resource ;
+.
+dcat:hadRole
+  a owl:ObjectProperty ;
+  rdfs:comment "The function of an entity or agent with respect to another entity or resource."@en ;
+  rdfs:domain [
+      a owl:Class ;
+      owl:unionOf (
+          prov:Attribution
+          dcat:Relationship
+        ) ;
+    ] ;
+  rdfs:label "hadRole"@en ;
+  rdfs:range dcat:Role ;
+.
+dcat:keyword
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  rdfs:comment "A keyword or tag describing a resource."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "keyword"@en ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dct:subject ;
+.
+dcat:landingPage
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "A Web page that can be navigated to in a Web browser to gain access to the catalog, a dataset, its distributions and/or additional information."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "landing page"@en ;
+  rdfs:range foaf:Document ;
+  rdfs:subPropertyOf foaf:page ;
+.
+dcat:mediaType
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "The media type of the distribution as defined by IANA"@en ;
+  rdfs:domain dcat:Distribution ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "media type"@en ;
+  rdfs:range dct:MediaType ;
+  rdfs:subPropertyOf dct:format ;
+.
+dcat:packageFormat
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "The package format of the distribution in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together."@en ;
+  rdfs:domain dcat:Distribution ;
+  rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
+  rdfs:label "packaging format"@en ;
+  rdfs:range dct:MediaType ;
+  rdfs:subPropertyOf dct:format ;
+.
+dcat:qualifiedRelation
+  a owl:ObjectProperty ;
+  rdfs:comment "Link to a description of a relationship with another resource."@en ;
+  rdfs:domain dcat:Resource ;
+  rdfs:label "qualified relation"@en ;
+  rdfs:range dcat:Relationship ;
+.
+dcat:record
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "A record describing the registration of a single dataset or data service that is part of the catalog."@en ;
+  rdfs:domain dcat:Catalog ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "record"@en ;
+  rdfs:range dcat:CatalogRecord ;
+.
+dcat:servesDataset
+  a owl:ObjectProperty ;
+  rdfs:comment "A collection of data that this DataService can distribute."@en ;
+  rdfs:domain dcat:DataService ;
+  rdfs:label "serves dataset"@en ;
+  rdfs:range dcat:Dataset ;
+.
+dcat:service
+  a owl:ObjectProperty ;
+  rdfs:comment "A site or endpoint that is listed in the catalog."@en ;
+  rdfs:domain dcat:Catalog ;
+  rdfs:label "service"@en ;
+  rdfs:range dcat:DataService ;
+  rdfs:subPropertyOf dct:hasPart ;
+  rdfs:subPropertyOf rdfs:member ;
+.
+dcat:spatialResolutionInMeters
+  a owl:DatatypeProperty ;
+  rdfs:comment "minimum spatial separation resolvable in a dataset, measured in meters."@en-US ;
+  rdfs:comment "minimum spatial separation resolvable in a dataset, measured in metres."@en-GB ;
+  rdfs:label "spatial resolution (meters)"@en-US ;
+  rdfs:label "spatial resolution (metres)"@en-GB ;
+  rdfs:range xsd:decimal ;
+.
+dcat:startDate
+  a rdf:Property ;
+  a owl:DatatypeProperty ;
+  rdfs:domain dct:PeriodOfTime ;
+  rdfs:label "start date"@en ;
+  rdfs:range rdfs:Literal ;
+.
+dcat:temporalResolution
+  a owl:DatatypeProperty ;
+  rdfs:comment "minimum time period resolvable in a dataset."@en ;
+  rdfs:label "temporal resolution"@en ;
+  rdfs:range xsd:duration ;
+.
+dcat:theme
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  rdfs:comment "A main category of the resource. A resource can have multiple themes."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "theme"@en ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf dct:subject ;
+.
+dcat:themeTaxonomy
+  a rdf:Property ;
+  a owl:ObjectProperty ;
+  sdo:rangeIncludes owl:Ontology ;
+  sdo:rangeIncludes skos:Collection ;
+  sdo:rangeIncludes skos:ConceptScheme ;
+  rdfs:comment "The knowledge organization system (KOS) used to classify catalog's datasets."@en ;
+  rdfs:domain dcat:Catalog ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "theme taxonomy"@en ;
+  rdfs:range rdfs:Resource ;
+.
+foaf:homepage
+  a owl:ObjectProperty ;
+  rdfs:comment "This axiom needed so that Protege loads DCAT2 without errors."
+.
+foaf:primaryTopic
+  a owl:ObjectProperty ;
+  rdfs:comment "This axiom needed so that Protege loads DCAT2 without errors."
+.
