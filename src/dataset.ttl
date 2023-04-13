@@ -106,6 +106,14 @@ rb:conformsToRdfStarDraft_20211217 rdf:type owl:DatatypeProperty ;
                                    rdfs:seeAlso <https://www.w3.org/2021/12/rdf-star.html> .
 
 
+###  https://riverbench.github.io/schema/dataset#hasFileName
+rb:hasFileName rdf:type owl:DatatypeProperty ;
+               rdfs:domain rb:Distribution ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Canonical file name of this distribution"@en ;
+               rdfs:label "Has file name"@en .
+
+
 ###  https://riverbench.github.io/schema/dataset#hasStreamLength
 rb:hasStreamLength rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf owl:topDataProperty ;
