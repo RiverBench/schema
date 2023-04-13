@@ -15,143 +15,160 @@
 
 # Exactly one dataset per file
 :DatasetGraphShape
-	a sh:NodeShape ;
-	sh:targetNode rb:Dataset ;
-	sh:property [
-      sh:path [ sh:inversePath rdf:type ] ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-    ]
+  a sh:NodeShape ;
+  sh:targetNode rb:Dataset ;
+  sh:property [
+    sh:path [ sh:inversePath rdf:type ] ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ]
 .
 
 :DatasetShape
-  	a sh:NodeShape ;
-	sh:targetClass rb:Dataset ;
-  	sh:property
-	[
-      sh:path rdf:type ;
-      sh:minCount 1 ;
-      sh:hasValue dcat:Dataset ;
-    ] ,
-	# General metadata
-    [
-      sh:path dcterms:conformsTo ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:nodeKind sh:IRI ;
-      sh:hasValue <https://riverbench.github.io/schema/dataset/1.0.0> ;
-    ] ,
-    [
-      sh:path dcterms:identifier ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:datatype xsd:string ;
-    ] ,
-	  [
-      sh:path dcterms:title ;
-      sh:minCount 1 ;
-      sh:datatype rdf:langString ;
-      sh:uniqueLang true ;
-    ] ,
-	  [
-      sh:path dcterms:description ;
-      sh:minCount 1 ;
-      sh:datatype rdf:langString ;
-      sh:uniqueLang true ;
-    ] ,
-	  [
-      sh:path dcterms:issued ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:datatype xsd:date ;
-    ] ,
-	  [
-      sh:path dcterms:modified ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:datatype xsd:date ;
-    ] ,
-	  # Attribution
-	  [
-      sh:path dcterms:license ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:nodeKind sh:IRI ;
-      sh:pattern "^http://spdx.org/licenses/" ;
-    ] ,
-	  [
-      sh:path dcterms:creator ;
-      sh:minCount 1 ;
-      sh:nodeKind sh:BlankNodeOrIRI ;
-    ] ,
-	  # Topics
-	  [
-      sh:path dcat:theme ;
-      sh:minCount 1 ;
-      sh:nodeKind sh:IRI ;
-      sh:pattern "^https://riverbench.github.io/schema/theme#" ;
-    ] ,
-	  # Technical metadata
-	  [
-      sh:path rb:usesOntology ;
-      sh:minCount 1 ;
-      sh:nodeKind sh:IRI ;
-    ] ,
-	  [
-      sh:path rb:hasStreamElementCount ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:datatype xsd:integer ;
-    ] ,
-	  [
-      sh:path rb:hasStreamElementType ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:in (rb:triples rb:graphs rb:quads) ;
-    ] ,
-	  [
-      sh:path rb:hasStreamElementSplit ;
-      sh:nodeKind sh:BlankNodeOrIRI ;
-      sh:node :StreamElementSplitShape ;
-    ] ,
-    # Conformance properties
-    [
-      sh:path rb:conformsToRdf11 ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:datatype xsd:boolean ;
-    ] ,
-    [
-      sh:path rb:conformsToRdfStarDraft_20211217 ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:datatype xsd:boolean ;
-    ] ,
-    [
-      sh:path rb:usesGeneralizedRdfDatasets ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:datatype xsd:boolean ;
-    ] ,
-    [
-      sh:path rb:usesGeneralizedTriples ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:datatype xsd:boolean ;
-    ] ,
-    [
-      sh:path rb:usesRdfStar ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:datatype xsd:boolean ;
-    ]
+  a sh:NodeShape ;
+  sh:targetClass rb:Dataset ;
+  sh:property
+  [
+    sh:path rdf:type ;
+    sh:minCount 1 ;
+    sh:hasValue dcat:Dataset ;
+  ] ,
+  # General metadata
+  [
+    sh:path dcterms:conformsTo ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:hasValue <https://riverbench.github.io/schema/dataset/1.0.0> ;
+  ] ,
+  [
+    sh:path dcterms:identifier ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ,
+  [
+    sh:path dcterms:title ;
+    sh:minCount 1 ;
+    sh:datatype rdf:langString ;
+    sh:uniqueLang true ;
+  ] ,
+  [
+    sh:path dcterms:description ;
+    sh:minCount 1 ;
+    sh:datatype rdf:langString ;
+    sh:uniqueLang true ;
+  ] ,
+  [
+    sh:path dcterms:issued ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:date ;
+  ] ,
+  [
+    sh:path dcterms:modified ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:date ;
+  ] ,
+  # Attribution
+  [
+    sh:path dcterms:license ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^http://spdx.org/licenses/" ;
+  ] ,
+  [
+    sh:path dcterms:creator ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+  ] ,
+  # Topics
+  [
+    sh:path dcat:theme ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^https://riverbench.github.io/schema/theme#" ;
+  ] ,
+  # Technical metadata
+  [
+    sh:path rb:usesOntology ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+  ] ,
+  [
+    sh:path rb:hasStreamElementCount ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:integer ;
+  ] ,
+  [
+    sh:path rb:hasStreamElementType ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:in (rb:triples rb:graphs rb:quads) ;
+  ] ,
+  [
+    sh:path rb:hasStreamElementSplit ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:node :StreamElementSplitShape ;
+  ] ,
+  # Conformance properties
+  [
+    sh:path rb:conformsToRdf11 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:boolean ;
+  ] ,
+  [
+    sh:path rb:conformsToRdfStarDraft_20211217 ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:boolean ;
+  ] ,
+  [
+    sh:path rb:usesGeneralizedRdfDatasets ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:boolean ;
+  ] ,
+  [
+    sh:path rb:usesGeneralizedTriples ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:boolean ;
+  ] ,
+  [
+    sh:path rb:usesRdfStar ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:boolean ;
+  ] ,
+  # Disallow version, landingPage, inSeries, distribution
+  [
+    sh:path dcat:version ;
+    sh:maxCount 0 ;
+  ] ,
+  [
+    sh:path dcat:landingPage ;
+    sh:maxCount 0 ;
+  ] ,
+  [
+    sh:path dcat:inSeries ;
+    sh:maxCount 0 ;
+  ] ,
+  [
+    sh:path dcat:distribution ;
+    sh:maxCount 0 ;
+  ]
 .
 
 :StreamElementSplitShape
-	a sh:NodeShape ;
-	sh:property
-	[
-      sh:path rdf:type ;
-      sh:in (rb:TimeStreamElementSplit rb:StatementCountStreamElementSplit rb:TopicStreamElementSplit) ;
-    ]
+  a sh:NodeShape ;
+  sh:property
+  [
+    sh:path rdf:type ;
+    sh:in (rb:TimeStreamElementSplit rb:StatementCountStreamElementSplit rb:TopicStreamElementSplit) ;
+  ]
 .
