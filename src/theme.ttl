@@ -1,4 +1,4 @@
-@prefix : <https://riverbench.github.io/schema/theme> .
+@prefix : <https://riverbench.github.io/schema/theme#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 :conceptScheme a skos:ConceptScheme ;
