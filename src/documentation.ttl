@@ -7,6 +7,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix rbdoc: <https://riverbench.github.io/schema/documentation#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://riverbench.github.io/schema/documentation> .
 
@@ -22,138 +23,143 @@
 
 ###  http://purl.org/dc/terms/conformsTo
 dcterms:conformsTo rdf:type owl:AnnotationProperty ;
-                   :hasDocGroup :groupDatasetInfo ;
-                   :isHiddenInDoc "true"^^xsd:boolean .
+                   rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                   rbdoc:isHiddenInDoc "true"^^xsd:boolean .
 
 
 ###  http://purl.org/dc/terms/creator
 dcterms:creator rdf:type owl:AnnotationProperty ;
-                :hasDocGroup :groupDatasetInfo ;
-                :hasDocWeight "10"^^xsd:int .
+                rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                rbdoc:hasDocWeight "10"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/description
 dcterms:description rdf:type owl:AnnotationProperty ;
-                    :hasDocGroup :groupDatasetInfo ;
-                    :hasDocWeight "1"^^xsd:int .
+                    rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                    rbdoc:hasDocWeight "1"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/identifier
 dcterms:identifier rdf:type owl:AnnotationProperty ;
-                   :hasDocGroup :groupDatasetInfo ;
-                   :hasDocWeight "2"^^xsd:int .
+                   rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                   rbdoc:hasDocWeight "2"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/issued
 dcterms:issued rdf:type owl:AnnotationProperty ;
-               :hasDocGroup :groupDatasetInfo ;
-               :hasDocWeight "20"^^xsd:int .
+               rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+               rbdoc:hasDocWeight "20"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/license
 dcterms:license rdf:type owl:AnnotationProperty ;
-                :hasDocGroup :groupDatasetInfo ;
-                :hasDocWeight "11"^^xsd:int .
+                rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                rbdoc:hasDocWeight "11"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/modified
 dcterms:modified rdf:type owl:AnnotationProperty ;
-                 :hasDocGroup :groupDatasetInfo ;
-                 :hasDocWeight "21"^^xsd:int .
+                 rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                 rbdoc:hasDocWeight "21"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/title
 dcterms:title rdf:type owl:AnnotationProperty ;
-              :hasDocGroup :groupDatasetInfo ;
-              :hasDocWeight "0"^^xsd:int .
+              rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+              rbdoc:hasDocWeight "0"^^xsd:int .
 
 
 ###  http://spdx.org/rdf/terms#checksum
 spdx:checksum rdf:type owl:AnnotationProperty ;
-              :hasDocWeight "2020"^^xsd:int .
+              rbdoc:hasDocWeight "2020"^^xsd:int .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:AnnotationProperty ;
+         rbdoc:hasDocWeight "-1"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#byteSize
 dcat:byteSize rdf:type owl:AnnotationProperty ;
-              :hasDocWeight "2001"^^xsd:int .
+              rbdoc:hasDocWeight "2001"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#compressFormat
 dcat:compressFormat rdf:type owl:AnnotationProperty ;
-                    :hasDocWeight "2012"^^xsd:int .
+                    rbdoc:hasDocWeight "2012"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#distribution
 dcat:distribution rdf:type owl:AnnotationProperty ;
-                  :hasDocGroup :groupDistributions ;
-                  :hasDocWeight "6000"^^xsd:int .
+                  rbdoc:hasDocGroup rbdoc:groupDistributions ;
+                  rbdoc:hasDocWeight "6000"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#downloadUrl
 dcat:downloadUrl rdf:type owl:AnnotationProperty ;
-                 :hasDocWeight "2000"^^xsd:int .
+                 rbdoc:hasDocWeight "2000"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#landingPage
 dcat:landingPage rdf:type owl:AnnotationProperty ;
-                 :hasDocGroup :groupDatasetInfo ;
-                 :hasDocWeight "30"^^xsd:int .
+                 rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                 rbdoc:hasDocWeight "30"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#mediaType
 dcat:mediaType rdf:type owl:AnnotationProperty ;
-               :hasDocWeight "2010"^^xsd:int .
+               rbdoc:hasDocWeight "2010"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#packageFormat
 dcat:packageFormat rdf:type owl:AnnotationProperty ;
-                   :hasDocWeight "2011"^^xsd:int .
+                   rbdoc:hasDocWeight "2011"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#temporalResolution
 dcat:temporalResolution rdf:type owl:AnnotationProperty ;
-                        :hasDocGroup :groupTechnicalMetadata ;
-                        :hasDocWeight "3000"^^xsd:int .
+                        rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                        rbdoc:hasDocWeight "3000"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#theme
 dcat:theme rdf:type owl:AnnotationProperty ;
-           :hasDocGroup :groupDatasetInfo ;
-           :hasDocWeight "4"^^xsd:int .
+           rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+           rbdoc:hasDocWeight "4"^^xsd:int .
 
 
 ###  http://xmlns.com/foaf/0.1/name
 foaf:name rdf:type owl:AnnotationProperty ;
-          :hasDocWeight "0"^^xsd:int .
+          rbdoc:hasDocWeight "0"^^xsd:int .
 
 
 ###  http://xmlns.com/foaf/0.1/nick
 foaf:nick rdf:type owl:AnnotationProperty ;
-          :hasDocWeight "1"^^xsd:int .
+          rbdoc:hasDocWeight "1"^^xsd:int .
 
 
 ###  https://riverbench.github.io/schema/documentation#hasDocGroup
-:hasDocGroup rdf:type owl:AnnotationProperty ;
-             rdfs:comment "Indicates the documentation group (heading) of a property"@en ;
-             rdfs:label "Has documentation group"@en ;
-             :isHiddenInDoc "true"^^xsd:boolean ;
-             rdfs:range :DocGroup .
+rbdoc:hasDocGroup rdf:type owl:AnnotationProperty ;
+                  rdfs:comment "Indicates the documentation group (heading) of a property"@en ;
+                  rdfs:label "Has documentation group"@en ;
+                  rbdoc:isHiddenInDoc "true"^^xsd:boolean ;
+                  rdfs:range rbdoc:DocGroup .
 
 
 ###  https://riverbench.github.io/schema/documentation#hasDocWeight
-:hasDocWeight rdf:type owl:AnnotationProperty ;
-              rdfs:comment "Weight of a given property when generating documentation (integer). Properties with lower values will be shown first in the generated docs."@en ;
-              rdfs:label "Has documentation weight"@en ;
-              :isHiddenInDoc "true"^^xsd:boolean ;
-              rdfs:range xsd:int .
+rbdoc:hasDocWeight rdf:type owl:AnnotationProperty ;
+                   rdfs:comment "Weight of a given property when generating documentation (integer). Properties with lower values will be shown first in the generated docs."@en ;
+                   rdfs:label "Has documentation weight"@en ;
+                   rbdoc:isHiddenInDoc "true"^^xsd:boolean ;
+                   rdfs:range xsd:int .
 
 
 ###  https://riverbench.github.io/schema/documentation#isHiddenInDoc
-:isHiddenInDoc rdf:type owl:AnnotationProperty ;
-               rdfs:comment "Whether a given property should be omitted in the generated documentation."@en ;
-               rdfs:label "Is hidden in documentation"@en ;
-               :isHiddenInDoc "true"^^xsd:boolean ;
-               rdfs:range xsd:boolean .
+rbdoc:isHiddenInDoc rdf:type owl:AnnotationProperty ;
+                    rdfs:comment "Whether a given property should be omitted in the generated documentation."@en ;
+                    rdfs:label "Is hidden in documentation"@en ;
+                    rbdoc:isHiddenInDoc "true"^^xsd:boolean ;
+                    rdfs:range xsd:boolean .
 
 
 #################################################################
@@ -161,9 +167,9 @@ foaf:nick rdf:type owl:AnnotationProperty ;
 #################################################################
 
 ###  https://riverbench.github.io/schema/documentation#DocGroup
-:DocGroup rdf:type owl:Class ;
-          rdfs:comment "Documentation group, corresponding to a heading in the generated document."@en ;
-          rdfs:label "Documentation group"@en .
+rbdoc:DocGroup rdf:type owl:Class ;
+               rdfs:comment "Documentation group, corresponding to a heading in the generated document."@en ;
+               rdfs:label "Documentation group"@en .
 
 
 #################################################################
@@ -171,78 +177,78 @@ foaf:nick rdf:type owl:AnnotationProperty ;
 #################################################################
 
 ###  https://riverbench.github.io/schema/documentation#groupDatasetInfo
-:groupDatasetInfo rdf:type owl:NamedIndividual ,
-                           :DocGroup ;
-                  rdfs:label "Dataset information"@en .
+rbdoc:groupDatasetInfo rdf:type owl:NamedIndividual ,
+                                rbdoc:DocGroup ;
+                       rdfs:label "Dataset information"@en .
 
 
 ###  https://riverbench.github.io/schema/documentation#groupDistributions
-:groupDistributions rdf:type owl:NamedIndividual ,
-                             :DocGroup ;
-                    rdfs:label "Distributions"@en .
+rbdoc:groupDistributions rdf:type owl:NamedIndividual ,
+                                  rbdoc:DocGroup ;
+                         rdfs:label "Distributions"@en .
 
 
 ###  https://riverbench.github.io/schema/documentation#groupTechnicalMetadata
-:groupTechnicalMetadata rdf:type owl:NamedIndividual ,
-                                 :DocGroup ;
-                        rdfs:label "Technical metadata"@en .
+rbdoc:groupTechnicalMetadata rdf:type owl:NamedIndividual ,
+                                      rbdoc:DocGroup ;
+                             rdfs:label "Technical metadata"@en .
 
 
 #################################################################
 #    Annotations
 #################################################################
 
-<https://riverbench.github.io/schema/dataset#conformsToRdf11> :hasDocWeight "1100"^^xsd:int ;
-                                                              :hasDocGroup :groupTechnicalMetadata .
+<https://riverbench.github.io/schema/dataset#conformsToRdf11> rbdoc:hasDocWeight "1100"^^xsd:int ;
+                                                              rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#conformsToRdfStarDraft_20211217> :hasDocGroup :groupTechnicalMetadata ;
-                                                                              :hasDocWeight "1110"^^xsd:int .
+<https://riverbench.github.io/schema/dataset#conformsToRdfStarDraft_20211217> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                                                                              rbdoc:hasDocWeight "1110"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasDistributionType> :hasDocWeight "1000"^^xsd:int .
+<https://riverbench.github.io/schema/dataset#hasDistributionType> rbdoc:hasDocWeight "1000"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasFileName> :hasDocWeight "12"^^xsd:int .
+<https://riverbench.github.io/schema/dataset#hasFileName> rbdoc:hasDocWeight "12"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasStatistics> :hasDocWeight "2040"^^xsd:int .
+<https://riverbench.github.io/schema/dataset#hasStatistics> rbdoc:hasDocWeight "2040"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasStreamElementCount> :hasDocWeight "1001"^^xsd:int ;
-                                                                    :hasDocGroup :groupTechnicalMetadata .
+<https://riverbench.github.io/schema/dataset#hasStreamElementCount> rbdoc:hasDocWeight "1001"^^xsd:int ;
+                                                                    rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#hasStreamElementSplit> :hasDocWeight "1002"^^xsd:int ;
-                                                                    :hasDocGroup :groupTechnicalMetadata .
+<https://riverbench.github.io/schema/dataset#hasStreamElementSplit> rbdoc:hasDocWeight "1002"^^xsd:int ;
+                                                                    rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#hasStreamElementType> :hasDocWeight "1000"^^xsd:int ;
-                                                                   :hasDocGroup :groupTechnicalMetadata .
+<https://riverbench.github.io/schema/dataset#hasStreamElementType> rbdoc:hasDocWeight "1000"^^xsd:int ;
+                                                                   rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#hasTemporalProperty> :hasDocGroup :groupTechnicalMetadata ;
-                                                                  :hasDocWeight "1020"^^xsd:int .
+<https://riverbench.github.io/schema/dataset#hasTemporalProperty> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                                                                  rbdoc:hasDocWeight "1020"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasVersion> :hasDocWeight "3"^^xsd:int ;
-                                                         :hasDocGroup :groupDatasetInfo .
+<https://riverbench.github.io/schema/dataset#hasVersion> rbdoc:hasDocWeight "3"^^xsd:int ;
+                                                         rbdoc:hasDocGroup rbdoc:groupDatasetInfo .
 
 
-<https://riverbench.github.io/schema/dataset#usesGeneralizedRdfDatasets> :hasDocGroup :groupTechnicalMetadata ;
-                                                                         :hasDocWeight "1201"^^xsd:int .
+<https://riverbench.github.io/schema/dataset#usesGeneralizedRdfDatasets> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                                                                         rbdoc:hasDocWeight "1201"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#usesGeneralizedTriples> :hasDocWeight "1200"^^xsd:int ;
-                                                                     :hasDocGroup :groupTechnicalMetadata .
+<https://riverbench.github.io/schema/dataset#usesGeneralizedTriples> rbdoc:hasDocWeight "1200"^^xsd:int ;
+                                                                     rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#usesOntology> :hasDocWeight "1010"^^xsd:int ;
-                                                           :hasDocGroup :groupTechnicalMetadata .
+<https://riverbench.github.io/schema/dataset#usesOntology> rbdoc:hasDocWeight "1010"^^xsd:int ;
+                                                           rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#usesRdfStar> :hasDocGroup :groupTechnicalMetadata ;
-                                                          :hasDocWeight "1210"^^xsd:int .
+<https://riverbench.github.io/schema/dataset#usesRdfStar> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                                                          rbdoc:hasDocWeight "1210"^^xsd:int .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
