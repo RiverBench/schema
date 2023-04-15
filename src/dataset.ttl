@@ -19,10 +19,17 @@
 
 ###  https://riverbench.github.io/schema/dataset#hasDistributionType
 rb:hasDistributionType rdf:type owl:ObjectProperty ;
-                       rdfs:domain rb:Distribution ;
                        rdfs:range rb:DistributionType ;
                        rdfs:comment "Indicates the type of RiverBench dataset distribution"@en ;
                        rdfs:label "Has distribution type"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#hasRestriction
+rb:hasRestriction rdf:type owl:ObjectProperty ;
+                  rdfs:domain rb:Profile ;
+                  rdfs:range rb:ProfileRestriction ;
+                  rdfs:comment "Has profile restriction. The restrictions are joined with the AND operator."@en ;
+                  rdfs:label "Has restriction"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#hasStatistics
@@ -43,7 +50,6 @@ rb:hasStreamElementSplit rdf:type owl:ObjectProperty ;
 
 ###  https://riverbench.github.io/schema/dataset#hasStreamElementType
 rb:hasStreamElementType rdf:type owl:ObjectProperty ;
-                        rdfs:domain rb:Dataset ;
                         rdfs:range rb:StreamElementType ;
                         rdfs:comment "Indicates the type of contents of each stream element"@en ;
                         rdfs:label "Has stream element type"@en .
@@ -202,6 +208,10 @@ rb:usesRdfStar rdf:type owl:DatatypeProperty ;
 dcat:Dataset rdf:type owl:Class .
 
 
+###  http://www.w3.org/ns/dcat#DatasetSeries
+dcat:DatasetSeries rdf:type owl:Class .
+
+
 ###  http://www.w3.org/ns/dcat#Distribution
 dcat:Distribution rdf:type owl:Class .
 
@@ -284,6 +294,19 @@ rb:PredicateCountStatistics rdf:type owl:Class ;
                             rdfs:subClassOf rb:Statistics ;
                             rdfs:comment "Statistics about the number of predicates in the dataset."@en ;
                             rdfs:label "Predicate count statistics"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#Profile
+rb:Profile rdf:type owl:Class ;
+           rdfs:subClassOf dcat:DatasetSeries ;
+           rdfs:comment "Benchmark profile grouping several datasets in RiverBench"@en ;
+           rdfs:label "Benchmark profile"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#ProfileRestriction
+rb:ProfileRestriction rdf:type owl:Class ;
+                      rdfs:comment "Resource with properties that specify conditions for datasets to be included in the profile. The conditions are joined with the OR operator."@en ;
+                      rdfs:label "Profile restriction"@en .
 
 
 ###  https://riverbench.github.io/schema/dataset#QuotedTripleCountStatistics
