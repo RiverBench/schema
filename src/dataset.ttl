@@ -62,6 +62,25 @@ rb:hasTemporalProperty rdf:type owl:ObjectProperty ;
                        rdfs:label "Has temporal property"@en .
 
 
+###  https://riverbench.github.io/schema/dataset#isSubsetOfProfile
+rb:isSubsetOfProfile rdf:type owl:ObjectProperty ;
+                     owl:inverseOf rb:isSupersetOfProfile ;
+                     rdf:type owl:TransitiveProperty ;
+                     rdfs:domain rb:Profile ;
+                     rdfs:range rb:Profile ;
+                     rdfs:comment "Indicates that this profile's datasets are all in the other profile"@en ;
+                     rdfs:label "Is subset of profile"@en .
+
+
+###  https://riverbench.github.io/schema/dataset#isSupersetOfProfile
+rb:isSupersetOfProfile rdf:type owl:ObjectProperty ,
+                                owl:TransitiveProperty ;
+                       rdfs:domain rb:Profile ;
+                       rdfs:range rb:Profile ;
+                       rdfs:comment "Indicates that this profile contains all datasets of the other profile"@en ;
+                       rdfs:label "Is superset of profile"@en .
+
+
 ###  https://riverbench.github.io/schema/dataset#usesOntology
 rb:usesOntology rdf:type owl:ObjectProperty ;
                 rdfs:domain rb:Dataset ;
