@@ -128,6 +128,18 @@ dcat:theme rdf:type owl:AnnotationProperty ;
            rbdoc:hasDocWeight "4"^^xsd:int .
 
 
+###  http://www.w3.org/ns/dcat#themeTaxonomy
+dcat:themeTaxonomy rdf:type owl:AnnotationProperty ;
+                   rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+                   rbdoc:hasDocWeight "100"^^xsd:int .
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+foaf:homepage rdf:type owl:AnnotationProperty ;
+              rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+              rbdoc:hasDocWeight "20"^^xsd:int .
+
+
 ###  http://xmlns.com/foaf/0.1/name
 foaf:name rdf:type owl:AnnotationProperty ;
           rbdoc:hasDocWeight "0"^^xsd:int .
@@ -154,12 +166,30 @@ rbdoc:hasDocWeight rdf:type owl:AnnotationProperty ;
                    rdfs:range xsd:int .
 
 
+###  https://riverbench.github.io/schema/documentation#hasLabelOverride
+rbdoc:hasLabelOverride rdf:type owl:AnnotationProperty ;
+                       rdfs:comment "Top-priority label to be used in documentation pages."@en ;
+                       rdfs:label "Has label override"@en ;
+                       rbdoc:isHiddenInDoc "true"^^xsd:boolean .
+
+
 ###  https://riverbench.github.io/schema/documentation#isHiddenInDoc
 rbdoc:isHiddenInDoc rdf:type owl:AnnotationProperty ;
                     rdfs:comment "Whether a given property should be omitted in the generated documentation."@en ;
                     rdfs:label "Is hidden in documentation"@en ;
                     rbdoc:isHiddenInDoc "true"^^xsd:boolean ;
                     rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/dcat#dataset
+dcat:dataset rdf:type owl:ObjectProperty ;
+             rbdoc:hasDocGroup rbdoc:groupContent ;
+             rbdoc:hasDocWeight "1000"^^xsd:int ;
+             rbdoc:hasLabelOverride "Has dataset"@en .
 
 
 #################################################################
@@ -175,6 +205,12 @@ rbdoc:DocGroup rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
+
+###  https://riverbench.github.io/schema/documentation#groupContent
+rbdoc:groupContent rdf:type owl:NamedIndividual ,
+                            rbdoc:DocGroup ;
+                   rdfs:label "Content"@en .
+
 
 ###  https://riverbench.github.io/schema/documentation#groupDistributions
 rbdoc:groupDistributions rdf:type owl:NamedIndividual ,
@@ -215,6 +251,10 @@ dcat:seriesMember rbdoc:hasDocWeight "50"^^xsd:int ;
 
 
 <https://riverbench.github.io/schema/dataset#hasFileName> rbdoc:hasDocWeight "12"^^xsd:int .
+
+
+<https://riverbench.github.io/schema/dataset#hasProfile> rbdoc:hasDocWeight "1001"^^xsd:int ;
+                                                         rbdoc:hasDocGroup rbdoc:groupContent .
 
 
 <https://riverbench.github.io/schema/dataset#hasRestriction> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
