@@ -192,6 +192,14 @@ dcat:dataset rdf:type owl:ObjectProperty ;
              rbdoc:hasLabelOverride "Has dataset"@en .
 
 
+###  http://www.w3.org/ns/dcat#inCatalog
+dcat:inCatalog rdf:type owl:ObjectProperty ;
+               rdfs:comment "Indicates the benchmark suite to which a dataset or profile belongs"@en ;
+               rdfs:label "In suite"@en ;
+               rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+               rbdoc:hasDocWeight "60"^^xsd:int .
+
+
 #################################################################
 #    Classes
 #################################################################
