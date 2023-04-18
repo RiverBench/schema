@@ -23,49 +23,49 @@
 
 ###  http://purl.org/dc/terms/conformsTo
 dcterms:conformsTo rdf:type owl:AnnotationProperty ;
-                   rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                   rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                    rbdoc:isHiddenInDoc "true"^^xsd:boolean .
 
 
 ###  http://purl.org/dc/terms/creator
 dcterms:creator rdf:type owl:AnnotationProperty ;
-                rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                 rbdoc:hasDocWeight "10"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/description
 dcterms:description rdf:type owl:AnnotationProperty ;
-                    rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                    rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                     rbdoc:hasDocWeight "1"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/identifier
 dcterms:identifier rdf:type owl:AnnotationProperty ;
-                   rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                   rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                    rbdoc:hasDocWeight "2"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/issued
 dcterms:issued rdf:type owl:AnnotationProperty ;
-               rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+               rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                rbdoc:hasDocWeight "20"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/license
 dcterms:license rdf:type owl:AnnotationProperty ;
-                rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                 rbdoc:hasDocWeight "11"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/modified
 dcterms:modified rdf:type owl:AnnotationProperty ;
-                 rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                 rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                  rbdoc:hasDocWeight "21"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/title
 dcterms:title rdf:type owl:AnnotationProperty ;
-              rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+              rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
               rbdoc:hasDocWeight "0"^^xsd:int .
 
 
@@ -102,7 +102,7 @@ dcat:downloadUrl rdf:type owl:AnnotationProperty ;
 
 ###  http://www.w3.org/ns/dcat#landingPage
 dcat:landingPage rdf:type owl:AnnotationProperty ;
-                 rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+                 rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                  rbdoc:hasDocWeight "30"^^xsd:int .
 
 
@@ -124,7 +124,7 @@ dcat:temporalResolution rdf:type owl:AnnotationProperty ;
 
 ###  http://www.w3.org/ns/dcat#theme
 dcat:theme rdf:type owl:AnnotationProperty ;
-           rbdoc:hasDocGroup rbdoc:groupDatasetInfo ;
+           rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
            rbdoc:hasDocWeight "4"^^xsd:int .
 
 
@@ -176,16 +176,16 @@ rbdoc:DocGroup rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  https://riverbench.github.io/schema/documentation#groupDatasetInfo
-rbdoc:groupDatasetInfo rdf:type owl:NamedIndividual ,
-                                rbdoc:DocGroup ;
-                       rdfs:label "Dataset information"@en .
-
-
 ###  https://riverbench.github.io/schema/documentation#groupDistributions
 rbdoc:groupDistributions rdf:type owl:NamedIndividual ,
                                   rbdoc:DocGroup ;
                          rdfs:label "Distributions"@en .
+
+
+###  https://riverbench.github.io/schema/documentation#groupGeneralInfo
+rbdoc:groupGeneralInfo rdf:type owl:NamedIndividual ,
+                                rbdoc:DocGroup ;
+                       rdfs:label "General information"@en .
 
 
 ###  https://riverbench.github.io/schema/documentation#groupTechnicalMetadata
@@ -198,6 +198,10 @@ rbdoc:groupTechnicalMetadata rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
+dcat:seriesMember rbdoc:hasDocWeight "50"^^xsd:int ;
+                  rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
+
+
 <https://riverbench.github.io/schema/dataset#conformsToRdf11> rbdoc:hasDocWeight "1100"^^xsd:int ;
                                                               rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
@@ -206,10 +210,15 @@ rbdoc:groupTechnicalMetadata rdf:type owl:NamedIndividual ,
                                                                               rbdoc:hasDocWeight "1110"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasDistributionType> rbdoc:hasDocWeight "1000"^^xsd:int .
+<https://riverbench.github.io/schema/dataset#hasDistributionType> rbdoc:hasDocWeight "1000"^^xsd:int ;
+                                                                  rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
 <https://riverbench.github.io/schema/dataset#hasFileName> rbdoc:hasDocWeight "12"^^xsd:int .
+
+
+<https://riverbench.github.io/schema/dataset#hasRestriction> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                                                             rbdoc:hasDocWeight "200"^^xsd:int .
 
 
 <https://riverbench.github.io/schema/dataset#hasStatistics> rbdoc:hasDocWeight "2040"^^xsd:int .
@@ -232,7 +241,15 @@ rbdoc:groupTechnicalMetadata rdf:type owl:NamedIndividual ,
 
 
 <https://riverbench.github.io/schema/dataset#hasVersion> rbdoc:hasDocWeight "3"^^xsd:int ;
-                                                         rbdoc:hasDocGroup rbdoc:groupDatasetInfo .
+                                                         rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
+
+
+<https://riverbench.github.io/schema/dataset#isSubsetOfProfile> rbdoc:hasDocWeight "21"^^xsd:int ;
+                                                                rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
+
+
+<https://riverbench.github.io/schema/dataset#isSupersetOfProfile> rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+                                                                  rbdoc:hasDocWeight "20"^^xsd:int .
 
 
 <https://riverbench.github.io/schema/dataset#usesGeneralizedRdfDatasets> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
