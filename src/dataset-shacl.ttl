@@ -39,7 +39,7 @@
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:nodeKind sh:IRI ;
-    sh:hasValue <https://riverbench.github.io/schema/dataset/1.0.0> ;
+    sh:hasValue <https://riverbench.github.io/schema/metadata> ;
   ] ,
   [
     sh:path dcterms:identifier ;

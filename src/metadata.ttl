@@ -8,7 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <https://riverbench.github.io/schema/metadata> rdf:type owl:Ontology ;
-                                               owl:versionIRI <https://riverbench.github.io/schema/metadata/1.0.0> ;
+                                               owl:versionIRI <https://riverbench.github.io/schema/metadata/dev> ;
                                                rdfs:comment "Ontology for describing datasets and profiles in the RiverBench benchmark suite."@en ;
                                                rdfs:label "RiverBench metadata ontology"@en .
 
