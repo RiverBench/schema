@@ -7,13 +7,14 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix rb: <https://riverbench.github.io/schema/metadata#> .
 @prefix rbdoc: <https://riverbench.github.io/schema/documentation#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://riverbench.github.io/schema/documentation> .
 
 <https://riverbench.github.io/schema/documentation> rdf:type owl:Ontology ;
                                                      owl:versionIRI <https://riverbench.github.io/schema/documentation/1.0.0> ;
-                                                     owl:imports <https://riverbench.github.io/schema/dataset/1.0.0> ;
+                                                     owl:imports <https://riverbench.github.io/schema/metadata/1.0.0> ;
                                                      rdfs:comment "Ontology with metadata needed to generate documentation of datasets, distributions, profiles, etc. in RiverBench"@en ;
                                                      rdfs:label "RiverBench documentation ontology"@en .
 
@@ -246,73 +247,73 @@ dcat:seriesMember rbdoc:hasDocWeight "50"^^xsd:int ;
                   rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
 
 
-<https://riverbench.github.io/schema/dataset#conformsToRdf11> rbdoc:hasDocWeight "1100"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#conformsToRdf11> rbdoc:hasDocWeight "1100"^^xsd:int ;
                                                               rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#conformsToRdfStarDraft_20211217> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+<https://riverbench.github.io/schema/metadata#conformsToRdfStarDraft_20211217> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
                                                                               rbdoc:hasDocWeight "1110"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasDistributionType> rbdoc:hasDocWeight "1000"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#hasDistributionType> rbdoc:hasDocWeight "1000"^^xsd:int ;
                                                                   rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#hasFileName> rbdoc:hasDocWeight "12"^^xsd:int .
+<https://riverbench.github.io/schema/metadata#hasFileName> rbdoc:hasDocWeight "12"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasProfile> rbdoc:hasDocWeight "1001"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#hasProfile> rbdoc:hasDocWeight "1001"^^xsd:int ;
                                                          rbdoc:hasDocGroup rbdoc:groupContent .
 
 
-<https://riverbench.github.io/schema/dataset#hasRestriction> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+<https://riverbench.github.io/schema/metadata#hasRestriction> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
                                                              rbdoc:hasDocWeight "200"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasStatistics> rbdoc:hasDocWeight "2040"^^xsd:int .
+<https://riverbench.github.io/schema/metadata#hasStatistics> rbdoc:hasDocWeight "2040"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasStreamElementCount> rbdoc:hasDocWeight "1001"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#hasStreamElementCount> rbdoc:hasDocWeight "1001"^^xsd:int ;
                                                                     rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#hasStreamElementSplit> rbdoc:hasDocWeight "1002"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#hasStreamElementSplit> rbdoc:hasDocWeight "1002"^^xsd:int ;
                                                                     rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#hasStreamElementType> rbdoc:hasDocWeight "1000"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#hasStreamElementType> rbdoc:hasDocWeight "1000"^^xsd:int ;
                                                                    rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#hasTemporalProperty> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+<https://riverbench.github.io/schema/metadata#hasTemporalProperty> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
                                                                   rbdoc:hasDocWeight "1020"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#hasVersion> rbdoc:hasDocWeight "3"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#hasVersion> rbdoc:hasDocWeight "3"^^xsd:int ;
                                                          rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
 
 
-<https://riverbench.github.io/schema/dataset#isSubsetOfProfile> rbdoc:hasDocWeight "21"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#isSubsetOfProfile> rbdoc:hasDocWeight "21"^^xsd:int ;
                                                                 rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
 
 
-<https://riverbench.github.io/schema/dataset#isSupersetOfProfile> rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+<https://riverbench.github.io/schema/metadata#isSupersetOfProfile> rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                                                                   rbdoc:hasDocWeight "20"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#usesGeneralizedRdfDatasets> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+<https://riverbench.github.io/schema/metadata#usesGeneralizedRdfDatasets> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
                                                                          rbdoc:hasDocWeight "1201"^^xsd:int .
 
 
-<https://riverbench.github.io/schema/dataset#usesGeneralizedTriples> rbdoc:hasDocWeight "1200"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#usesGeneralizedTriples> rbdoc:hasDocWeight "1200"^^xsd:int ;
                                                                      rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#usesOntology> rbdoc:hasDocWeight "1010"^^xsd:int ;
+<https://riverbench.github.io/schema/metadata#usesOntology> rbdoc:hasDocWeight "1010"^^xsd:int ;
                                                            rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
-<https://riverbench.github.io/schema/dataset#usesRdfStar> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+<https://riverbench.github.io/schema/metadata#usesRdfStar> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
                                                           rbdoc:hasDocWeight "1210"^^xsd:int .
 
 
