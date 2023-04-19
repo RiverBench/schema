@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+# TODO: doc gen & trigger doc update
+
+jobs:
+  pre-release:
+    name: "Make a pre-release"
+    runs-on: "ubuntu-latest"
+    container: ghcr.io/riverbench/ci-worker:main
+    permissions: write-all
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+        with:
+          path: schema
+
+      - name: "Package schema"
+        run: |
+          mkdir release
+          ci-worker package-schema dev schema release
+
+      - name: Upload files for the release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          allowUpdates: true
+          prerelease: true
+          draft: false
+          omitDraftDuringUpdate: false
+          makeLatest: false
+          tag: "dev"
+          name: "Development pre-release"
+          artifacts: 'release/*'
+          removeArtifacts: true
+          generateReleaseNotes: true

@@ -1,0 +1,34 @@
+on:
+  push:
+    tags:
+      - "v*"
+
+# TODO: doc gen & trigger doc update
+
+jobs:
+  tagged-release:
+    name: "Make a tagged release"
+    runs-on: "ubuntu-latest"
+    container: ghcr.io/riverbench/ci-worker:main
+    permissions: write-all
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v3
+        with:
+          path: schema
+
+      - name: "Package schema"
+        run: |
+          mkdir release
+          ci-worker package-schema dev schema release
+
+      - name: Upload files for the release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          prerelease: false
+          draft: false
+          makeLatest: true
+          tag: "${{ env.GITHUB_REF_NAME }}"
+          name: "${{ env.GITHUB_REF_NAME }}"
+          artifacts: 'release/*'
+          generateReleaseNotes: true
