@@ -20,7 +20,7 @@ jobs:
       - name: "Package schema"
         run: |
           mkdir release
-          ci-worker package-schema dev schema release
+          ci-worker package-schema "${GITHUB_REF_NAME#v}" schema release
 
       - name: Upload files for the release
         uses: ncipollo/release-action@v1.12.0
