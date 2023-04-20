@@ -1,4 +1,4 @@
-@prefix : <https://riverbench.github.io/schema/dataset-shacl#> .
+@prefix : <https://w3id.org/riverbench/schema/dataset-shacl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -8,8 +8,8 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rb: <https://riverbench.github.io/schema/metadata#> .
-@prefix rbt: <https://riverbench.github.io/schema/theme#> .
+@prefix rb: <https://w3id.org/riverbench/schema/metadata#> .
+@prefix rbt: <https://w3id.org/riverbench/schema/theme#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 
@@ -39,7 +39,7 @@
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:nodeKind sh:IRI ;
-    sh:hasValue <https://riverbench.github.io/schema/metadata> ;
+    sh:hasValue <https://w3id.org/riverbench/schema/metadata> ;
   ] ,
   [
     sh:path dcterms:identifier ;
@@ -89,7 +89,7 @@
     sh:path dcat:theme ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
-    sh:pattern "^https://riverbench.github.io/schema/theme#" ;
+    sh:pattern "^https://w3id.org/riverbench/schema/theme#" ;
   ] ,
   # Technical metadata
   [

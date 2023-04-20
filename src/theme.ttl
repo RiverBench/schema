@@ -1,4 +1,4 @@
-@prefix rbt: <https://riverbench.github.io/schema/theme#> .
+@prefix rbt: <https://w3id.org/riverbench/schema/theme#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 rbt:conceptScheme a skos:ConceptScheme ;
