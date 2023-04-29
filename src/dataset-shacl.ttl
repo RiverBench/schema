@@ -71,7 +71,7 @@
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:nodeKind sh:IRI ;
-    sh:pattern "^http://spdx.org/licenses/" ;
+    sh:pattern "^https://spdx.org/licenses/" ;
   ] ,
   [
     sh:path dcterms:creator ;
