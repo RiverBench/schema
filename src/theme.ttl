@@ -45,6 +45,11 @@ rbt:sensorData a skos:Concept ;
     skos:definition "Datasets with data from sensors, sensor networks, IoT devices, etc."@en ;
     skos:broader rbt:domain .
 
+rbt:meteorological a skos:Concept ;
+    skos:prefLabel "Meteorological"@en ;
+    skos:definition "Datasets with meteorological information."@en ;
+    skos:broader rbt:domain .
+
 rbt:abstract a skos:Concept ;
     skos:prefLabel "Abstract data"@en ;
     skos:definition "Datasets with abstract information (unrelated to the real world)."@en ;
