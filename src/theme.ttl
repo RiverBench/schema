@@ -5,31 +5,69 @@ rbt:conceptScheme a skos:ConceptScheme ;
     skos:prefLabel "RiverBench topic scheme"@en ;
     skos:definition "Collection of topic concepts used to annotate RiverBench datasets."@en ;
     skos:hasTopConcept rbt:rootConcept .
-    
+
 rbt:rootConcept a skos:Concept ;  
     skos:prefLabel "Root concept"@en .
+
+# Level 1 concepts
+
+rbt:dataType a skos:Concept ;
+    skos:prefLabel "Data type"@en ;
+    skos:definition "Datasets by types of data used."@en ;
+    skos:broader rbt:rootConcept .
+
+rbt:domain a skos:Concept ;
+    skos:prefLabel "Domain"@en ;
+    skos:definition "Datasets by domain."@en ;
+    skos:broader rbt:rootConcept .
+
+# Data type concepts
 
 rbt:temporal a skos:Concept ;
     skos:prefLabel "Temporal"@en ;
     skos:definition "Datasets with temporal information."@en ;
-    skos:broader rbt:rootConcept .
+    skos:broader rbt:dataType .
 
 rbt:spatial a skos:Concept ;
     skos:prefLabel "Spatial"@en ;
     skos:definition "Datasets with spatial information."@en ;
-    skos:broader rbt:rootConcept .
+    skos:broader rbt:dataType .
+
+# Domain concepts
 
 rbt:statistical a skos:Concept ;
     skos:prefLabel "Statistical"@en ;
     skos:definition "Datasets with statistical information."@en ;
-    skos:broader rbt:rootConcept .
+    skos:broader rbt:domain .
 
 rbt:sensorData a skos:Concept ;
     skos:prefLabel "Sensor data"@en ;
     skos:definition "Datasets with data from sensors, sensor networks, IoT devices, etc."@en ;
-    skos:broader rbt:rootConcept .
+    skos:broader rbt:domain .
 
 rbt:abstract a skos:Concept ;
     skos:prefLabel "Abstract data"@en ;
     skos:definition "Datasets with abstract information (unrelated to the real world)."@en ;
-    skos:broader rbt:rootConcept .
+    skos:broader rbt:domain .
+
+rbt:bibliographical a skos:Concept ;
+    skos:prefLabel "Bibliographical"@en ;
+    skos:definition "Datasets with bibliographical information."@en ;
+    skos:broader rbt:domain .
+
+rbt:encyclopedic a skos:Concept ;
+    skos:prefLabel "Encyclopedic"@en ;
+    skos:definition "Datasets with encyclopedic information."@en ;
+    skos:broader rbt:domain .
+
+# Scientific domain concepts
+
+rbt:scientific a skos:Concept ;
+    skos:prefLabel "Scientific"@en ;
+    skos:definition "Datasets with scientific information."@en ;
+    skos:broader rbt:domain .
+
+rbt:biomedical a skos:Concept ;
+    skos:prefLabel "Biomedical"@en ;
+    skos:definition "Datasets with biomedical information."@en ;
+    skos:broader rbt:scientific .
