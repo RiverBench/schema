@@ -75,6 +75,11 @@ rbt:political a skos:Concept ;
     skos:definition "Datasets with political information."@en ;
     skos:broader rbt:domain .
 
+rbt:government a skos:Concept ;
+    skos:prefLabel "Government"@en ;
+    skos:definition "Datasets with information on governments or produced by governments."@en ;
+    skos:broader rbt:domain .
+
 # Scientific domain concepts
 
 rbt:scientific a skos:Concept ;
