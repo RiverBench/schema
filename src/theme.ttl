@@ -65,6 +65,16 @@ rbt:encyclopedic a skos:Concept ;
     skos:definition "Datasets with encyclopedic information."@en ;
     skos:broader rbt:domain .
 
+rbt:news a skos:Concept ;
+    skos:prefLabel "News"@en ;
+    skos:definition "Datasets with news information."@en ;
+    skos:broader rbt:domain .
+
+rbt:political a skos:Concept ;
+    skos:prefLabel "Political"@en ;
+    skos:definition "Datasets with political information."@en ;
+    skos:broader rbt:domain .
+
 # Scientific domain concepts
 
 rbt:scientific a skos:Concept ;
