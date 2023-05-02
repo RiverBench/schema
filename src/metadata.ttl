@@ -6,6 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/riverbench/schema/metadata> .
 
 <https://w3id.org/riverbench/schema/metadata> rdf:type owl:Ontology ;
                                                owl:versionIRI <https://w3id.org/riverbench/schema/metadata/dev> ;
@@ -206,8 +207,8 @@ rb:sum rdf:type owl:DatatypeProperty ;
 rb:uniqueCount rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf rb:statisticalProperty ;
                rdfs:range xsd:integer ;
-               rdfs:comment "Only used for count statistics. Indicates how many unique elements are in the entire dataset."@en ;
-               rdfs:label "Unique count"@en .
+               rdfs:comment "Only used for count statistics. Indicates how many unique elements are in the entire dataset. The value is estimated with a Bloom filter and is accurate to ~1%."@en ;
+               rdfs:label "Unique count (estimated)"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#usesGeneralizedRdfDatasets
