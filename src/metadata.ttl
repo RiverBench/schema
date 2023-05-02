@@ -325,13 +325,6 @@ rb:ObjectCountStatistics rdf:type owl:Class ;
                          rdfs:label "Object count statistics"@en .
 
 
-###  https://w3id.org/riverbench/schema/metadata#PlainLiteralCountStatistics
-rb:PlainLiteralCountStatistics rdf:type owl:Class ;
-                               rdfs:subClassOf rb:Statistics ;
-                               rdfs:comment "Statistics about the number of simple literals (of type xsd:string) in the dataset."@en ;
-                               rdfs:label "Simple literal count statistics"@en .
-
-
 ###  https://w3id.org/riverbench/schema/metadata#PredicateCountStatistics
 rb:PredicateCountStatistics rdf:type owl:Class ;
                             rdfs:subClassOf rb:Statistics ;
@@ -364,6 +357,13 @@ rb:RiverBench rdf:type owl:Class ;
               rdfs:subClassOf dcat:Catalog ;
               rdfs:comment "RiverBench – RDF streaming benchmark suite"@en ;
               rdfs:label "RiverBench suite"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#SimpleLiteralCountStatistics
+rb:SimpleLiteralCountStatistics rdf:type owl:Class ;
+                                rdfs:subClassOf rb:Statistics ;
+                                rdfs:comment "Statistics about the number of simple literals (of type xsd:string) in the dataset."@en ;
+                                rdfs:label "Simple literal count statistics"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#StatementCountStatistics
