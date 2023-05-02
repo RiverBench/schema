@@ -5,13 +5,59 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @base <https://w3id.org/riverbench/schema/metadata> .
 
 <https://w3id.org/riverbench/schema/metadata> rdf:type owl:Ontology ;
                                                owl:versionIRI <https://w3id.org/riverbench/schema/metadata/dev> ;
+                                               <http://purl.org/dc/terms/creator> [ foaf:homepage <https://github.com/Ostrzyciel> ,
+                                                                                                  <https://orcid.org/0000-0002-2543-9461> ;
+                                                                                    foaf:name "Piotr Sowiński" ;
+                                                                                    foaf:nick "Ostrzyciel"
+                                                                                  ] ;
+                                               <http://purl.org/dc/terms/license> <https://spdx.org/licenses/CC-BY-4.0> ;
+                                               vann:preferredNamespacePrefix "rb" ;
+                                               vann:preferredNamespaceUri "https://w3id.org/riverbench/schema/metadata" ;
                                                rdfs:comment "Ontology for describing datasets and profiles in the RiverBench benchmark suite."@en ;
                                                rdfs:label "RiverBench metadata ontology"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+foaf:homepage rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/nick
+foaf:nick rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
@@ -114,7 +160,9 @@ rb:usesOntology rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#conformanceProperty
 rb:conformanceProperty rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf owl:topDataProperty ;
-                       rdfs:range xsd:boolean .
+                       rdfs:range xsd:boolean ;
+                       rdfs:comment "Base property for all conformance data properties"@en ;
+                       rdfs:label "Conformance property"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#conformsToRdf11
@@ -269,6 +317,7 @@ rb:BlankNodeCountStatistics rdf:type owl:Class ;
 ###  https://w3id.org/riverbench/schema/metadata#Dataset
 rb:Dataset rdf:type owl:Class ;
            rdfs:subClassOf dcat:Dataset ;
+           rdfs:comment "A dataset in the RiverBench benchmark suite"@en ;
            rdfs:label "RiverBench dataset"@en .
 
 
@@ -282,11 +331,13 @@ rb:DatatypeLiteralCountStatistics rdf:type owl:Class ;
 ###  https://w3id.org/riverbench/schema/metadata#Distribution
 rb:Distribution rdf:type owl:Class ;
                 rdfs:subClassOf dcat:Distribution ;
+                rdfs:comment "A distribution of a dataset in the RiverBench benchmark suite."@en ;
                 rdfs:label "RiverBench dataset distribution"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#DistributionType
 rb:DistributionType rdf:type owl:Class ;
+                    rdfs:comment "Type of dataset distribution, indicating the corresponding streaming task formulation."@en ;
                     rdfs:label "RiverBench distribution type"@en .
 
 
@@ -380,7 +431,9 @@ rb:StatementCountStreamElementSplit rdf:type owl:Class ;
 
 
 ###  https://w3id.org/riverbench/schema/metadata#Statistics
-rb:Statistics rdf:type owl:Class .
+rb:Statistics rdf:type owl:Class ;
+              rdfs:comment "Class for statistics objects about distributions"@en ;
+              rdfs:label "Statistics"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#StreamElementSplit
@@ -480,5 +533,11 @@ rb:triples rdf:type owl:NamedIndividual ,
            rdfs:comment "Triple streams consist of elements, where each element is an RDF graph."@en ;
            rdfs:label "Triples"@en .
 
+
+[ foaf:homepage <https://github.com/Ostrzyciel> ,
+                <https://orcid.org/0000-0002-2543-9461> ;
+  foaf:name "Piotr Sowiński" ;
+  foaf:nick "Ostrzyciel"
+] .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
