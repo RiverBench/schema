@@ -64,6 +64,12 @@ dcterms:modified rdf:type owl:AnnotationProperty ;
                  rbdoc:hasDocWeight "21"^^xsd:int .
 
 
+###  http://purl.org/dc/terms/rights
+dcterms:rights rdf:type owl:AnnotationProperty ;
+               rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+               rbdoc:hasDocWeight "12"^^xsd:int .
+
+
 ###  http://purl.org/dc/terms/title
 dcterms:title rdf:type owl:AnnotationProperty ;
               rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
