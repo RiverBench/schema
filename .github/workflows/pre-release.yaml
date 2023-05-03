@@ -4,13 +4,12 @@ on:
       - main
   workflow_dispatch: {}
 
-# TODO: doc gen & trigger doc update
+# TODO: trigger doc update
 
 jobs:
-  pre-release:
+  package:
     name: "Make a pre-release"
     runs-on: "ubuntu-latest"
-    container: ghcr.io/riverbench/ci-worker:main
     permissions: write-all
     steps:
       - name: "Checkout repository"
@@ -18,10 +17,33 @@ jobs:
         with:
           path: schema
 
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      
+      - run: |
+          pip install -r schema/requirements.txt
+          mkdir release doc_temp doc_out
+
       - name: "Package schema"
+        uses: docker://ghcr.io/riverbench/ci-worker:main
+        with:
+          args: ci-worker package-schema dev schema release doc_temp
+
+      - name: "Generate docs with PyLODE"
         run: |
-          mkdir release
-          ci-worker package-schema dev schema release
+          python -m pylode.cli -i doc_temp/metadata.ttl -c false -o doc_temp/metadata.md -f md
+          python -m pylode.cli -i doc_temp/documentation.ttl -c false -o doc_temp/documentation.md -f md
+          python -m pylode.cli -p vocpub -i doc_temp/theme.ttl -c false -o doc_temp/theme.md -f md
+
+      - name: "Post-process the docs"
+        uses: docker://ghcr.io/riverbench/ci-worker:main
+        with:
+          args: ci-worker schema-doc-gen dev doc_temp doc_out
+
+      - name: "Package docs"
+        run: tar -czf release/docs.tar.gz -C doc_out .
 
       - name: Upload files for the release
         uses: ncipollo/release-action@v1.12.0
