@@ -4,8 +4,6 @@ on:
       - main
   workflow_dispatch: {}
 
-# TODO: trigger doc update
-
 jobs:
   package:
     name: "Make a pre-release"
@@ -58,3 +56,16 @@ jobs:
           artifacts: 'release/*'
           removeArtifacts: true
           generateReleaseNotes: true
+
+  trigger-doc-update:
+    needs: package
+    name: "Trigger documentation update"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Trigger repository_dispatch"
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT_DOC_REPO_HOOKS }}
+          repository: RiverBench/riverbench.github.io
+          event-type: schema-doc-update
+          client-payload: '{ "tag": "dev" }'
