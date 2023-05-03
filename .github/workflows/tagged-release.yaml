@@ -26,7 +26,7 @@ jobs:
       - name: "Package schema"
         uses: docker://ghcr.io/riverbench/ci-worker:main
         with:
-          args: ci-worker package-schema "${GITHUB_REF_NAME#v}" schema release doc_temp
+          args: sh -c 'ci-worker package-schema "${GITHUB_REF_NAME#v}" schema release doc_temp'
 
       - name: "Generate docs with PyLODE"
         run: |
@@ -37,7 +37,7 @@ jobs:
       - name: "Post-process the docs"
         uses: docker://ghcr.io/riverbench/ci-worker:main
         with:
-          args: ci-worker schema-doc-gen "${GITHUB_REF_NAME#v}" doc_temp doc_out
+          args: sh -c 'ci-worker schema-doc-gen "${GITHUB_REF_NAME#v}" doc_temp doc_out'
 
       - name: Upload files for the release
         uses: ncipollo/release-action@v1.12.0
