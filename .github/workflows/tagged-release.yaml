@@ -39,6 +39,9 @@ jobs:
         with:
           args: sh -c "ci-worker schema-doc-gen \"${GITHUB_REF_NAME#v}\" doc_temp doc_out"
 
+      - name: "Package docs"
+        run: tar -czf release/docs.tar.gz -C doc_out .
+
       - name: Upload files for the release
         uses: ncipollo/release-action@v1.12.0
         with:
