@@ -17,9 +17,9 @@
                                                owl:imports <http://www.w3.org/ns/dcat> ;
                                                dc:description "Ontology for describing datasets and profiles in the RiverBench benchmark suite."@en ;
                                                dc:title "RiverBench metadata ontology"@en ;
-                                               dct:created "2023-04-30"@en ;
+                                               dct:created "2023-04-30T00:00:00"^^xsd:dateTime ;
                                                dct:creator _:genid1, "Piotr Sowiński"@en ;
-                                               dct:issued "2023-05-05"@en ;
+                                               dct:issued "2023-05-05T00:00:00"^^xsd:dateTime ;
                                                dct:license <https://spdx.org/licenses/CC-BY-4.0> ;
                                                vann:preferredNamespacePrefix "rb" ;
                                                vann:preferredNamespaceUri "https://w3id.org/riverbench/schema/metadata#" ;

@@ -4,19 +4,33 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix rbdoc: <https://w3id.org/riverbench/schema/documentation#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @base <https://w3id.org/riverbench/schema/documentation> .
 
 <https://w3id.org/riverbench/schema/documentation> rdf:type owl:Ontology ;
                                                     owl:versionIRI <https://w3id.org/riverbench/schema/documentation/dev> ;
                                                     owl:imports <https://w3id.org/riverbench/schema/metadata/dev> ;
-                                                    rdfs:comment "Ontology with metadata needed to generate documentation of datasets, distributions, profiles, etc. in RiverBench"@en ;
-                                                    rdfs:label "RiverBench documentation ontology"@en .
+                                                    dc:description "Ontology with metadata needed to generate documentation of datasets, distributions, profiles, etc. in RiverBench"@en ;
+                                                    dc:title "RiverBench documentation ontology"@en ;
+                                                    dcterms:created "2023-04-30T00:00:00"^^xsd:dateTime ;
+                                                    dcterms:creator _:genid1, "Piotr Sowiński"@en ;
+                                                    dcterms:issued "2023-05-05T00:00:00"^^xsd:dateTime ;
+                                                    dcterms:license <https://spdx.org/licenses/CC-BY-4.0> ;
+                                                    vann:preferredNamespacePrefix "rbdoc" ;
+                                                    vann:preferredNamespaceUri "https://w3id.org/riverbench/schema/documentation#" ;
+                                                    <http://schema.org/citation> "Please cite this work according to the instructions here: https://w3id.org/riverbench/documentation/licensing/"@en .
+
+_:genid1 foaf:homepage <https://github.com/Ostrzyciel> ,
+                        <https://orcid.org/0000-0002-2543-9461> ;
+          foaf:name "Piotr Sowiński" ;
+          foaf:nick "Ostrzyciel" .
 
 #################################################################
 #    Annotation properties
