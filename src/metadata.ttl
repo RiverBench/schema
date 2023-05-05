@@ -22,7 +22,7 @@
                                                dct:issued "2023-05-05"@en ;
                                                dct:license <https://spdx.org/licenses/CC-BY-4.0> ;
                                                vann:preferredNamespacePrefix "rb" ;
-                                               vann:preferredNamespaceUri "https://w3id.org/riverbench/schema/metadata" ;
+                                               vann:preferredNamespaceUri "https://w3id.org/riverbench/schema/metadata#" ;
                                                <http://schema.org/citation> "Please cite this work according to the instructions here: https://w3id.org/riverbench/documentation/licensing/"@en .
 
 _:genid1 foaf:homepage <https://github.com/Ostrzyciel> ,
