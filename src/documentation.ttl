@@ -1,17 +1,17 @@
 @prefix : <https://w3id.org/riverbench/schema/documentation#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix rb: <https://w3id.org/riverbench/schema/metadata#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix rbdoc: <https://w3id.org/riverbench/schema/documentation#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @base <https://w3id.org/riverbench/schema/documentation> .
 
 <https://w3id.org/riverbench/schema/documentation> rdf:type owl:Ontology ;
@@ -80,6 +80,12 @@ dcterms:modified rdf:type owl:AnnotationProperty ;
 
 ###  http://purl.org/dc/terms/rights
 dcterms:rights rdf:type owl:AnnotationProperty ;
+               rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+               rbdoc:hasDocWeight "12"^^xsd:int .
+
+
+###  http://purl.org/dc/terms/source
+dcterms:source rdf:type owl:AnnotationProperty ;
                rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                rbdoc:hasDocWeight "12"^^xsd:int .
 
@@ -156,9 +162,7 @@ dcat:themeTaxonomy rdf:type owl:AnnotationProperty ;
 
 
 ###  http://xmlns.com/foaf/0.1/homepage
-foaf:homepage rdf:type owl:AnnotationProperty ;
-              rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
-              rbdoc:hasDocWeight "20"^^xsd:int .
+foaf:homepage rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/name
@@ -264,7 +268,11 @@ rbdoc:groupTechnicalMetadata rdf:type owl:NamedIndividual ,
 #################################################################
 
 dcat:seriesMember rbdoc:hasDocWeight "50"^^xsd:int ;
-                  rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
+                   rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
+
+
+foaf:homepage rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+              rbdoc:hasDocWeight "20"^^xsd:int .
 
 
 rb:conformsToRdf11 rbdoc:hasDocWeight "1100"^^xsd:int ;
