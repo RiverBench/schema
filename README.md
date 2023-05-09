@@ -1,5 +1,10 @@
 # schema
-Ontologies and schemas for dataset descriptions in RiverBench
+
+Ontologies and schemas for metadata in RiverBench.
+
+**See the documentation and releases [on the website](https://w3id.org/riverbench/schema)**
+
+More information about metadata in RiverBench: [https://w3id.org/riverbench/documentation/metadata](https://w3id.org/riverbench/documentation/metadata)
 
 ## Versioning and releases
 
