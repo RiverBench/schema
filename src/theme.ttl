@@ -91,6 +91,11 @@ rbt:government a skos:Concept ;
     skos:definition "Datasets with information on governments or produced by governments."@en ;
     skos:broader rbt:domain .
 
+rbt:musical a skos:Concept ;
+    skos:prefLabel "Musical"@en ;
+    skos:definition "Datasets with information about music."@en ;
+    skos:broader rbt:domain .
+
 # Scientific domain concepts
 
 rbt:scientific a skos:Concept ;
