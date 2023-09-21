@@ -301,6 +301,9 @@ rb:hasRestriction rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
 rb:hasStatistics rbdoc:hasDocWeight "2040"^^xsd:int .
 
 
+rb:hasStatisticsSet rbdoc:hasLabelOverride "Statistics"@en .
+
+
 rb:hasStreamElementCount rbdoc:hasDocWeight "1001"^^xsd:int ;
                          rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
