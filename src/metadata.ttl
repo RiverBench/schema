@@ -538,6 +538,13 @@ rb:graphs rdf:type owl:NamedIndividual ,
           rdfs:label "Graphs"@en .
 
 
+###  https://w3id.org/riverbench/schema/metadata#jellyDistribution
+rb:jellyDistribution rdf:type owl:NamedIndividual ,
+                              rb:DistributionType ;
+                     rdfs:comment "A streaming distribution in the Jelly binary format."@en ;
+                     rdfs:label "Jelly distribution"@en .
+
+
 ###  https://w3id.org/riverbench/schema/metadata#partialDistribution
 rb:partialDistribution rdf:type owl:NamedIndividual ,
                                 rb:DistributionType ;
