@@ -98,6 +98,7 @@ dcat:seriesMember rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/riverbench/schema/metadata#hasDistributionType
 rb:hasDistributionType rdf:type owl:ObjectProperty ;
+                       rdfs:domain rb:Distribution ;
                        rdfs:range rb:DistributionType ;
                        rdfs:comment "Indicates the type of RiverBench dataset distribution"@en ;
                        rdfs:label "Has distribution type"@en .
@@ -122,10 +123,18 @@ rb:hasRestriction rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/riverbench/schema/metadata#hasStatistics
 rb:hasStatistics rdf:type owl:ObjectProperty ;
-                 rdfs:domain rb:Distribution ;
+                 rdfs:domain rb:StatisticsSet ;
                  rdfs:range rb:Statistics ;
                  rdfs:comment "Has a dataset statistics object"@en ;
                  rdfs:label "Has statistics"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#hasStatisticsSet
+rb:hasStatisticsSet rdf:type owl:ObjectProperty ;
+                    rdfs:domain rb:Distribution ;
+                    rdfs:range rb:StatisticsSet ;
+                    rdfs:comment "Indicates the grouping (set) of statistics for a given distribution. Multiple distributions can share one set of statistics, but a distribution must have exactly one statistics set."@en ;
+                    rdfs:label "Has statistics set"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#hasStreamElementSplit
@@ -448,6 +457,12 @@ rb:StatementCountStreamElementSplit rdf:type owl:Class ;
 rb:Statistics rdf:type owl:Class ;
               rdfs:comment "Class for statistics objects about distributions"@en ;
               rdfs:label "Statistics"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#StatisticsSet
+rb:StatisticsSet rdf:type owl:Class ;
+                 rdfs:comment "Class for groupings (sets) of statistics about distributions"@en ;
+                 rdfs:label "Statistics set"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#StreamElementSplit
