@@ -66,28 +66,40 @@ stax:isUsageOf a owl:ObjectProperty ;
 Inverse of stax:hasStreamTypeUsage."""@en ;
     rdfs:domain stax:RdfStreamTypeUsage .
 
-stax:rdfSubjectGraphStream a owl:NamedIndividual,
+stax:subjectGraphStream a owl:NamedIndividual,
         skos:Concept,
         stax:ConcreteRdfStreamType ;
-    skos:broader stax:rdfGraphStream ;
+    skos:broader stax:graphStream ;
     skos:definition "An RDF subject graph stream is an RDF graph stream in which every element contains exactly one unique triple subject."@en ;
     skos:inScheme <https://w3id.org/stax/ontology> ;
     skos:note "A stream of RDF graphs which have one subject each."@en ;
     skos:prefLabel "RDF subject graph stream"@en ;
-    stax:canBeFlattenedInto stax:flatRdfTripleStream ;
+    stax:canBeFlattenedInto stax:flatTripleStream ;
     stax:hasElementType stax:graph .
 
-stax:timestampedRdfNamedGraphStream a owl:NamedIndividual,
+stax:timestampedNamedGraphStream a owl:NamedIndividual,
         skos:Concept,
         stax:ConcreteRdfStreamType ;
-    skos:broader stax:rdfNamedGraphStream ;
+    skos:broader stax:namedGraphStream ;
     skos:definition """A timestamped named graph is an RDF dataset in which: (1) there is exactly one named RDF graph pair <n, G>, where G is an RDF graph, and n is the graph node; (2) the default graph includes a timestamp triple <n, p, t>, where p is a timestamp predicate that relates t, called the timestamp, and the graph G.
 
 A timestamped RDF named graph stream is an RDF named graph stream in which every element is a timestamped named graph. The elements that share the same timestamp predicate p are ordered by the partial order associated with p."""@en ;
     skos:inScheme <https://w3id.org/stax/ontology> ;
     skos:note "A stream of datasets which contain one timestamped, named graph. The definition is based on the draft RSP Data model: https://streamreasoning.org/RSP-QL/Abstract%20Syntax%20and%20Semantics%20Document/"@en ;
     skos:prefLabel "Timestamped RDF named graph stream"@en ;
-    stax:canBeFlattenedInto stax:flatRdfQuadStream ;
+    stax:canBeFlattenedInto stax:flatQuadStream ;
+    stax:hasElementType stax:dataset .
+
+stax:namedGraphStream a owl:NamedIndividual,
+        skos:Concept,
+        stax:ConcreteRdfStreamType ;
+    skos:broader stax:datasetStream ;
+    skos:definition "An RDF named graph stream is an RDF dataset stream in which every element has exactly one named RDF graph pair <n, G>, where G is an RDF graph, and n is the graph node. Apart from graph G, the dataset may contain any number of triples in the default graph."@en ;
+    skos:inScheme <https://w3id.org/stax/ontology> ;
+    skos:narrower stax:timestampedNamedGraphStream ;
+    skos:note "A stream of datasets which have one named graph."@en ;
+    skos:prefLabel "RDF named graph stream"@en ;
+    stax:canBeFlattenedInto stax:flatQuadStream ;
     stax:hasElementType stax:dataset .
 
 stax:quad a owl:NamedIndividual,
@@ -95,18 +107,6 @@ stax:quad a owl:NamedIndividual,
     skos:definition "An RDF quad is an RDF triple with a fourth component indicating the RDF graph the triple belongs to. If the triple is in a named graph, then the fourth component is the graph name (blank node or IRI). If the triple is in the default graph, then the fourth component is empty."@en ;
     skos:note "RDF quad, defined here in STaX. The definition is based on the RDF 1.1 Concepts and Abstract Syntax W3C Recommendation."@en ;
     skos:prefLabel "RDF quad"@en .
-
-stax:rdfNamedGraphStream a owl:NamedIndividual,
-        skos:Concept,
-        stax:ConcreteRdfStreamType ;
-    skos:broader stax:rdfDatasetStream ;
-    skos:definition "An RDF named graph stream is an RDF dataset stream in which every element has exactly one named RDF graph pair <n, G>, where G is an RDF graph, and n is the graph node. Apart from graph G, the dataset may contain any number of triples in the default graph."@en ;
-    skos:inScheme <https://w3id.org/stax/ontology> ;
-    skos:narrower stax:timestampedRdfNamedGraphStream ;
-    skos:note "A stream of datasets which have one named graph."@en ;
-    skos:prefLabel "RDF named graph stream"@en ;
-    stax:canBeFlattenedInto stax:flatRdfQuadStream ;
-    stax:hasElementType stax:dataset .
 
 stax:streamTypeSemanticRelation a owl:ObjectProperty ;
     rdfs:label "is in stream type semantic relation with"@en ;
@@ -144,26 +144,38 @@ Note that "stream type usage" is a subjective assertion and instances of this cl
             owl:onProperty stax:hasStreamType ] ;
     skos:example <https://w3id.org/stax/dev/use-it/> .
 
-stax:flatRdfStream a owl:NamedIndividual,
+stax:datasetStream a owl:NamedIndividual,
+        skos:Concept,
+        stax:ConcreteRdfStreamType ;
+    skos:broader stax:groupedStream ;
+    skos:definition "An RDF dataset stream is a grouped RDF stream whose elements are RDF datasets."@en ;
+    skos:inScheme <https://w3id.org/stax/ontology> ;
+    skos:narrower stax:namedGraphStream ;
+    skos:note "A stream of RDF datasets."@en ;
+    skos:prefLabel "RDF dataset stream"@en ;
+    stax:canBeFlattenedInto stax:flatQuadStream ;
+    stax:hasElementType stax:dataset .
+
+stax:flatStream a owl:NamedIndividual,
         skos:Concept,
         stax:AbstractRdfStreamType ;
     skos:broader stax:rdfStream ;
     skos:definition "A flat RDF stream is an RDF stream whose elements are statements (either RDF triples or RDF quads)."@en ;
     skos:inScheme <https://w3id.org/stax/ontology> ;
-    skos:narrower stax:flatRdfQuadStream,
-        stax:flatRdfTripleStream ;
+    skos:narrower stax:flatQuadStream,
+        stax:flatTripleStream ;
     skos:note "Abstract flat RDF stream type."@en ;
     skos:prefLabel "Flat RDF stream"@en .
 
-stax:flatRdfTripleStream a owl:NamedIndividual,
+stax:flatTripleStream a owl:NamedIndividual,
         skos:Concept,
         stax:ConcreteRdfStreamType ;
-    skos:broader stax:flatRdfStream ;
+    skos:broader stax:flatStream ;
     skos:definition "A flat RDF triple stream is an RDF stream whose elements are triple statements."@en ;
     skos:inScheme <https://w3id.org/stax/ontology> ;
     skos:note "A stream of triple statements."@en ;
     skos:prefLabel "Flat RDF triple stream"@en ;
-    stax:canBeGroupedInto stax:rdfGraphStream ;
+    stax:canBeGroupedInto stax:graphStream ;
     stax:hasElementType stax:triple .
 
 stax:graph a owl:NamedIndividual,
@@ -173,14 +185,26 @@ stax:graph a owl:NamedIndividual,
     skos:prefLabel "RDF graph"@en ;
     skos:relatedMatch sd:Graph .
 
-stax:groupedRdfStream a owl:NamedIndividual,
+stax:graphStream a owl:NamedIndividual,
+        skos:Concept,
+        stax:ConcreteRdfStreamType ;
+    skos:broader stax:groupedStream ;
+    skos:definition "An RDF graph stream is a grouped RDF stream whose elements are unnamed (default) RDF graphs."@en ;
+    skos:inScheme <https://w3id.org/stax/ontology> ;
+    skos:narrower stax:subjectGraphStream ;
+    skos:note "A stream of RDF graphs."@en ;
+    skos:prefLabel "RDF graph stream"@en ;
+    stax:canBeFlattenedInto stax:flatTripleStream ;
+    stax:hasElementType stax:graph .
+
+stax:groupedStream a owl:NamedIndividual,
         skos:Concept,
         stax:AbstractRdfStreamType ;
     skos:broader stax:rdfStream ;
     skos:definition "A grouped RDF stream is an RDF stream whose elements are either RDF graphs or RDF datasets."@en ;
     skos:inScheme <https://w3id.org/stax/ontology> ;
-    skos:narrower stax:rdfDatasetStream,
-        stax:rdfGraphStream ;
+    skos:narrower stax:datasetStream,
+        stax:graphStream ;
     skos:note "Abstract grouped RDF stream type."@en ;
     skos:prefLabel "Grouped RDF stream"@en .
 
@@ -191,36 +215,12 @@ stax:hasElementType a owl:ObjectProperty ;
     rdfs:range stax:RdfElementType ;
     owl:propertyChainAxiom ( skos:broaderTransitive stax:hasElementType ) .
 
-stax:rdfDatasetStream a owl:NamedIndividual,
-        skos:Concept,
-        stax:ConcreteRdfStreamType ;
-    skos:broader stax:groupedRdfStream ;
-    skos:definition "An RDF dataset stream is a grouped RDF stream whose elements are RDF datasets."@en ;
-    skos:inScheme <https://w3id.org/stax/ontology> ;
-    skos:narrower stax:rdfNamedGraphStream ;
-    skos:note "A stream of RDF datasets."@en ;
-    skos:prefLabel "RDF dataset stream"@en ;
-    stax:canBeFlattenedInto stax:flatRdfQuadStream ;
-    stax:hasElementType stax:dataset .
-
-stax:rdfGraphStream a owl:NamedIndividual,
-        skos:Concept,
-        stax:ConcreteRdfStreamType ;
-    skos:broader stax:groupedRdfStream ;
-    skos:definition "An RDF graph stream is a grouped RDF stream whose elements are unnamed (default) RDF graphs."@en ;
-    skos:inScheme <https://w3id.org/stax/ontology> ;
-    skos:narrower stax:rdfSubjectGraphStream ;
-    skos:note "A stream of RDF graphs."@en ;
-    skos:prefLabel "RDF graph stream"@en ;
-    stax:canBeFlattenedInto stax:flatRdfTripleStream ;
-    stax:hasElementType stax:graph .
-
 stax:rdfStream a owl:NamedIndividual,
         skos:Concept,
         stax:AbstractRdfStreamType ;
     skos:definition "An RDF stream is an ordered, potentially infinite sequence of RDF stream elements."@en ;
-    skos:narrower stax:flatRdfStream,
-        stax:groupedRdfStream ;
+    skos:narrower stax:flatStream,
+        stax:groupedStream ;
     skos:note "Base abstract RDF stream type."@en ;
     skos:prefLabel "RDF stream"@en ;
     skos:topConceptOf <https://w3id.org/stax/ontology> .
@@ -232,15 +232,15 @@ stax:dataset a owl:NamedIndividual,
     skos:prefLabel "RDF dataset"@en ;
     skos:relatedMatch sd:Dataset .
 
-stax:flatRdfQuadStream a owl:NamedIndividual,
+stax:flatQuadStream a owl:NamedIndividual,
         skos:Concept,
         stax:ConcreteRdfStreamType ;
-    skos:broader stax:flatRdfStream ;
+    skos:broader stax:flatStream ;
     skos:definition "A flat RDF quad stream is an RDF stream whose elements are quad statements."@en ;
     skos:inScheme <https://w3id.org/stax/ontology> ;
     skos:note "A stream of quad statements."@en ;
     skos:prefLabel "Flat RDF quad stream"@en ;
-    stax:canBeGroupedInto stax:rdfDatasetStream ;
+    stax:canBeGroupedInto stax:datasetStream ;
     stax:hasElementType stax:quad .
 
 stax:RdfElementType a owl:Class ;
@@ -262,7 +262,7 @@ stax:RdfElementType a owl:Class ;
             foaf:name "Piotr Sowiński" ;
             foaf:nick "Ostrzyciel" ] ;
     dcterms:license <https://spdx.org/licenses/CC-BY-4.0> ;
-    dcterms:modified "2023-10-29T13:57:54"^^xsd:dateTime ;
+    dcterms:modified "2023-10-29T20:15:53"^^xsd:dateTime ;
     vann:preferredNamespacePrefix "stax" ;
     vann:preferredNamespaceUri stax: ;
     schema:citation "Please cite this work according to the instructions here: https://w3id.org/stax/licensing"@en ;
