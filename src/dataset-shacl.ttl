@@ -11,6 +11,8 @@
 @prefix rb: <https://w3id.org/riverbench/schema/metadata#> .
 @prefix rbt: <https://w3id.org/riverbench/schema/theme#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix stax: <https://w3id.org/stax/ontology#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 
 # Exactly one dataset per file
@@ -98,10 +100,10 @@
     sh:datatype xsd:integer ;
   ] ,
   [
-    sh:path rb:hasStreamElementType ;
+    sh:path stax:hasStreamTypeUsage ;
     sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:in (rb:triples rb:graphs rb:quads) ;
+    sh:maxCount 2 ;
+    sh:node :StreamTypeShape ;
   ] ,
   [
     sh:path rb:hasStreamElementSplit ;
@@ -159,6 +161,93 @@
   [
     sh:path dcat:distribution ;
     sh:maxCount 0 ;
+  ]
+.
+
+# Validate stream type annotations (RDF-STaX)
+:StreamTypeShape
+  a sh:NodeShape ;
+  sh:and (
+    # General conditions
+    [
+      sh:property [
+        sh:path rdf:type ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:hasValue stax:RdfStreamTypeUsage ;
+      ] , [
+        sh:path stax:hasStreamType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:node [
+          a sh:NodeShape ;
+          sh:property [
+            sh:path rdf:type ;
+            sh:hasValue stax:ConcreteRdfStreamType ;
+          ]
+        ] ;
+      ]
+    ]
+    # Either flat or grouped – specific conditions
+    [
+      sh:xone (
+        :FlatStreamTypeUsageShape
+        :GroupedStreamTypeUsageShape
+      )
+    ]
+  )
+.
+
+# Flat stream type usage
+:FlatStreamTypeUsageShape
+  sh:property [
+    sh:path (
+      stax:hasStreamType
+      [ sh:oneOrMorePath skos:broader ]
+    ) ;
+    sh:minCount 1 ;
+    sh:hasValue stax:flatRdfStream ;
+  ]
+.
+
+# Grouped stream type usage
+# The grouped stream type must be consistent with the flat stream type
+:GroupedStreamTypeUsageShape
+  sh:property [
+    sh:path (
+      stax:hasStreamType
+      [ sh:oneOrMorePath skos:broader ]
+    ) ;
+    sh:minCount 1 ;
+    sh:hasValue stax:groupedRdfStream ;
+  ] , [
+    sh:path (
+      stax:hasStreamType
+      stax:canBeFlattenedInto
+      [ sh:inversePath stax:hasStreamType ]
+      [ sh:inversePath stax:hasStreamTypeUsage ]
+    ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+  ]
+.
+
+# We must have exactly one flat stream type annotation
+:FlatStreamTypeShape
+  a sh:NodeShape ;
+  sh:targetNode stax:flatRdfStream ;
+  sh:property [
+    sh:path (
+      [ sh:oneOrMorePath skos:narrower ]
+      [ sh:inversePath stax:hasStreamType ]
+      [ sh:inversePath stax:hasStreamTypeUsage ]
+    ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
   ]
 .
 

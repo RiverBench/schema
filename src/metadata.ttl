@@ -14,11 +14,12 @@
 
 <https://w3id.org/riverbench/schema/metadata> rdf:type owl:Ontology ;
                                                owl:versionIRI <https://w3id.org/riverbench/schema/metadata/dev> ;
-                                               owl:imports <http://www.w3.org/ns/dcat> ;
+                                               owl:imports <http://www.w3.org/ns/dcat> ,
+                                                           <https://w3id.org/stax/ontology> ;
                                                dc:description "Ontology for describing datasets and profiles in the RiverBench benchmark suite."@en ;
                                                dc:title "RiverBench metadata ontology"@en ;
                                                dct:created "2023-04-30T00:00:00"^^xsd:dateTime ;
-                                               dct:creator _:genid1, "Piotr Sowiński"@en ;
+                                               dct:creator _:genid1 ;
                                                dct:issued "2023-05-05T00:00:00"^^xsd:dateTime ;
                                                dct:license <https://spdx.org/licenses/CC-BY-4.0> ;
                                                vann:preferredNamespacePrefix "rb" ;
@@ -144,13 +145,6 @@ rb:hasStreamElementSplit rdf:type owl:ObjectProperty ;
                          rdfs:range rb:StreamElementSplit ;
                          rdfs:comment "Indicates how the stream was split into elements."@en ;
                          rdfs:label "Has stream element split"@en .
-
-
-###  https://w3id.org/riverbench/schema/metadata#hasStreamElementType
-rb:hasStreamElementType rdf:type owl:ObjectProperty ;
-                        rdfs:range rb:StreamElementType ;
-                        rdfs:comment "Indicates the type of contents of each stream element"@en ;
-                        rdfs:label "Has stream element type"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#hasTemporalProperty
@@ -338,7 +332,11 @@ rb:BlankNodeCountStatistics rdf:type owl:Class ;
 
 ###  https://w3id.org/riverbench/schema/metadata#Dataset
 rb:Dataset rdf:type owl:Class ;
-           rdfs:subClassOf dcat:Dataset ;
+           rdfs:subClassOf dcat:Dataset ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty <https://w3id.org/stax/ontology#hasStreamTypeUsage> ;
+                             owl:someValuesFrom <https://w3id.org/stax/ontology#ConcreteRdfStreamType>
+                           ] ;
            rdfs:comment "A dataset in the RiverBench benchmark suite"@en ;
            rdfs:label "RiverBench dataset"@en .
 
@@ -352,7 +350,11 @@ rb:DatatypeLiteralCountStatistics rdf:type owl:Class ;
 
 ###  https://w3id.org/riverbench/schema/metadata#Distribution
 rb:Distribution rdf:type owl:Class ;
-                rdfs:subClassOf dcat:Distribution ;
+                rdfs:subClassOf dcat:Distribution ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty <https://w3id.org/stax/ontology#hasStreamTypeUsage> ;
+                                  owl:someValuesFrom <https://w3id.org/stax/ontology#ConcreteRdfStreamType>
+                                ] ;
                 rdfs:comment "A distribution of a dataset in the RiverBench benchmark suite."@en ;
                 rdfs:label "RiverBench dataset distribution"@en .
 
@@ -471,12 +473,6 @@ rb:StreamElementSplit rdf:type owl:Class ;
                       rdfs:label "Stream element split"@en .
 
 
-###  https://w3id.org/riverbench/schema/metadata#StreamElementType
-rb:StreamElementType rdf:type owl:Class ;
-                     rdfs:comment "Indicates the type of the contents of stream elements"@en ;
-                     rdfs:label "Stream element type"@en .
-
-
 ###  https://w3id.org/riverbench/schema/metadata#SubjectCountStatistics
 rb:SubjectCountStatistics rdf:type owl:Class ;
                           rdfs:subClassOf rb:Statistics ;
@@ -524,20 +520,6 @@ rb:fullDistribution rdf:type owl:NamedIndividual ,
                     rdfs:label "Full distribution"@en .
 
 
-###  https://w3id.org/riverbench/schema/metadata#graphStreamDistribution
-rb:graphStreamDistribution rdf:type owl:NamedIndividual ,
-                                    rb:DistributionType ;
-                           rdfs:comment "The dataset is distributed as a stream of named RDF graphs."@en ;
-                           rdfs:label "Graph stream distribution"@en .
-
-
-###  https://w3id.org/riverbench/schema/metadata#graphs
-rb:graphs rdf:type owl:NamedIndividual ,
-                   rb:StreamElementType ;
-          rdfs:comment "Graph streams are a special case of quad streams, where each element contains exactly one named RDF graph."@en ;
-          rdfs:label "Graphs"@en .
-
-
 ###  https://w3id.org/riverbench/schema/metadata#jellyDistribution
 rb:jellyDistribution rdf:type owl:NamedIndividual ,
                               rb:DistributionType ;
@@ -552,31 +534,22 @@ rb:partialDistribution rdf:type owl:NamedIndividual ,
                        rdfs:label "Partial distribution"@en .
 
 
-###  https://w3id.org/riverbench/schema/metadata#quadStreamDistribution
-rb:quadStreamDistribution rdf:type owl:NamedIndividual ,
-                                   rb:DistributionType ;
-                          rdfs:comment "The dataset is distributed as a stream of RDF quads."@en ;
-                          rdfs:label "Quad stream distribution"@en .
-
-
-###  https://w3id.org/riverbench/schema/metadata#quads
-rb:quads rdf:type owl:NamedIndividual ,
-                  rb:StreamElementType ;
-         rdfs:comment "Quad streams consist of elements, where each element is an RDF dataset."@en ;
-         rdfs:label "Quads"@en .
-
-
-###  https://w3id.org/riverbench/schema/metadata#tripleStreamDistribution
-rb:tripleStreamDistribution rdf:type owl:NamedIndividual ,
-                                     rb:DistributionType ;
-                            rdfs:comment "The dataset is distributed as a stream of RDF triples."@en ;
-                            rdfs:label "Triple stream distribution"@en .
+###  https://w3id.org/riverbench/schema/metadata#streamDistribution
+rb:streamDistribution rdf:type owl:NamedIndividual ,
+                               rb:DistributionType ;
+                      rdfs:comment "The dataset is distributed as a stream of RDF datasets or RDF graphs (grouped RDF stream in RDF-STaX)."@en ;
+                      rdfs:label "Stream distribution"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#triples
-rb:triples rdf:type owl:NamedIndividual ,
-                    rb:StreamElementType ;
+rb:triples rdf:type owl:NamedIndividual ;
            rdfs:comment "Triple streams consist of elements, where each element is an RDF graph."@en ;
            rdfs:label "Triples"@en .
+
+
+_:genid1 foaf:homepage <https://github.com/Ostrzyciel> ,
+                       <https://orcid.org/0000-0002-2543-9461> ;
+         foaf:name "Piotr Sowiński" ;
+         foaf:nick "Ostrzyciel" .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
