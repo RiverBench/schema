@@ -278,6 +278,7 @@
         sh:targetClass
         sh:targetSubjectsOf
         sh:targetObjectsOf
+        rb:targetCustom
       ) ]
     ) ;
     sh:minCount 1 ;

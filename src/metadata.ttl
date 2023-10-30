@@ -186,6 +186,14 @@ rb:isSupersetOfProfile rdf:type owl:ObjectProperty ,
                        rdfs:label "Is superset of profile"@en .
 
 
+###  https://w3id.org/riverbench/schema/metadata#targetCustom
+rb:targetCustom rdf:type owl:ObjectProperty ;
+                rdfs:domain sh:NodeShape ;
+                rdfs:range rb:CustomShaclTarget ;
+                rdfs:comment "Custom SHACL-like node target used in RiverBench for datasets where SHACL does not provide adequate means for targeting them (e.g., for RDF-star)."@en ;
+                rdfs:label "Target custom"@en .
+
+
 ###  https://w3id.org/riverbench/schema/metadata#usesOntology
 rb:usesOntology rdf:type owl:ObjectProperty ;
                 rdfs:domain rb:Dataset ;
@@ -345,6 +353,12 @@ rb:BlankNodeCountStatistics rdf:type owl:Class ;
                             rdfs:subClassOf rb:Statistics ;
                             rdfs:comment "Statistics about the number of blank nodes in the dataset."@en ;
                             rdfs:label "Blank node count statistics"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#CustomShaclTarget
+rb:CustomShaclTarget rdf:type owl:Class ;
+                     rdfs:comment "A class for all custom SHACL-like node targets in RiverBench. See also rb:targetCustom."@en ;
+                     rdfs:label "Custom SHACL target"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#Dataset
@@ -542,6 +556,13 @@ rb:jellyDistribution rdf:type owl:NamedIndividual ,
                               rb:DistributionType ;
                      rdfs:comment "A streaming distribution in the Jelly binary format."@en ;
                      rdfs:label "Jelly distribution"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#yagoTarget
+rb:yagoTarget rdf:type owl:NamedIndividual ,
+                           rb:CustomShaclTarget ;
+                  rdfs:comment "Custom SHACL-like target for the yago-annotated-facts dataset in RiverBench. Targets the subject of any quoted triple in the graph. There is always exactly one such unique subject."@en ;
+                  rdfs:label "YAGO annotated facts target"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#partialDistribution
