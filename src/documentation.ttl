@@ -20,7 +20,7 @@
                                                     dc:description "Ontology with metadata needed to generate documentation of datasets, distributions, profiles, etc. in RiverBench"@en ;
                                                     dc:title "RiverBench documentation ontology"@en ;
                                                     dcterms:created "2023-04-30T00:00:00"^^xsd:dateTime ;
-                                                    dcterms:creator _:genid1, "Piotr Sowiński"@en ;
+                                                    dcterms:creator _:genid1 ;
                                                     dcterms:issued "2023-05-05T00:00:00"^^xsd:dateTime ;
                                                     dcterms:license <https://spdx.org/licenses/CC-BY-4.0> ;
                                                     vann:preferredNamespacePrefix "rbdoc" ;
@@ -310,6 +310,10 @@ rb:hasStreamElementCount rbdoc:hasDocWeight "1001"^^xsd:int ;
 
 rb:hasStreamElementSplit rbdoc:hasDocWeight "1002"^^xsd:int ;
                          rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
+
+
+rb:hasSubjectShape rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                   rbdoc:hasDocWeight "1021"^^xsd:int .
 
 
 rb:hasTemporalProperty rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;

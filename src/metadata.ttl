@@ -1,6 +1,7 @@
 @prefix : <https://w3id.org/riverbench/schema/metadata#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix rb: <https://w3id.org/riverbench/schema/metadata#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -145,6 +146,18 @@ rb:hasStreamElementSplit rdf:type owl:ObjectProperty ;
                          rdfs:range rb:StreamElementSplit ;
                          rdfs:comment "Indicates how the stream was split into elements."@en ;
                          rdfs:label "Has stream element split"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#hasSubjectShape
+rb:hasSubjectShape rdf:type owl:ObjectProperty ;
+                   rdfs:domain rb:TopicStreamElementSplit ;
+                   rdfs:range sh:NodeShape ;
+                   rdfs:comment """Indicates the subject node in an RDF subject graph stream, using SHACL. The value of this property should be a SHACL sh:NodeShape with a specified target (e.g., sh:targetSubjectsOf). Only the target will be considered, restrictions on the shape will be ignored.
+
+This property is required for RDF subject graph streams. Only sh:targetClass, sh:targetSubjectsOf, and sh:targetObjectsOf are allowed as the target specification.
+
+This property can be specified multiple times. The different target specifications will then be treated as alternatives."""@en ;
+                   rdfs:label "Has subject shape"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#hasTemporalProperty
@@ -321,6 +334,10 @@ rb:usesRdfStar rdf:type owl:DatatypeProperty ;
 ###  http://www.w3.org/ns/dcat#DatasetSeries
 dcat:DatasetSeries rdf:type owl:Class ;
                    rdfs:label "Dataset series"@en .
+
+
+###  http://www.w3.org/ns/shacl#NodeShape
+sh:NodeShape rdf:type owl:Class .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#BlankNodeCountStatistics

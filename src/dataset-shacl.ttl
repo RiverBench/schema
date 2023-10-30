@@ -208,7 +208,7 @@
       [ sh:oneOrMorePath skos:broader ]
     ) ;
     sh:minCount 1 ;
-    sh:hasValue stax:flatRdfStream ;
+    sh:hasValue stax:flatStream ;
   ]
 .
 
@@ -221,7 +221,7 @@
       [ sh:oneOrMorePath skos:broader ]
     ) ;
     sh:minCount 1 ;
-    sh:hasValue stax:groupedRdfStream ;
+    sh:hasValue stax:groupedStream ;
   ] , [
     sh:path (
       stax:hasStreamType
@@ -238,7 +238,7 @@
 # We must have exactly one flat stream type annotation
 :FlatStreamTypeShape
   a sh:NodeShape ;
-  sh:targetNode stax:flatRdfStream ;
+  sh:targetNode stax:flatStream ;
   sh:property [
     sh:path (
       [ sh:oneOrMorePath skos:narrower ]
@@ -253,9 +253,34 @@
 
 :StreamElementSplitShape
   a sh:NodeShape ;
-  sh:property
-  [
+  sh:property [
     sh:path rdf:type ;
-    sh:in (rb:TimeStreamElementSplit rb:StatementCountStreamElementSplit rb:TopicStreamElementSplit) ;
+    sh:in (
+      rb:TimeStreamElementSplit
+      rb:StatementCountStreamElementSplit
+      rb:TopicStreamElementSplit
+    ) ;
+  ]
+.
+
+:SubjectShapeShape
+  a sh:NodeShape ;
+  sh:targetSubjectsOf rb:hasSubjectShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:hasValue rb:TopicStreamElementSplit ;
+  ] , [
+    sh:path (
+      rb:hasSubjectShape
+      [ sh:alternativePath (
+        sh:targetClass
+        sh:targetSubjectsOf
+        sh:targetObjectsOf
+      ) ]
+    ) ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
   ]
 .
