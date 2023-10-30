@@ -16,7 +16,7 @@
 <https://w3id.org/riverbench/schema/metadata> rdf:type owl:Ontology ;
                                                owl:versionIRI <https://w3id.org/riverbench/schema/metadata/dev> ;
                                                owl:imports <http://www.w3.org/ns/dcat> ,
-                                                           <https://w3id.org/stax/ontology> ;
+                                                           <https://w3id.org/stax/0.3.1/ontology> ;
                                                dc:description "Ontology for describing datasets and profiles in the RiverBench benchmark suite."@en ;
                                                dc:title "RiverBench metadata ontology"@en ;
                                                dct:created "2023-04-30T00:00:00"^^xsd:dateTime ;
