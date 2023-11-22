@@ -275,6 +275,42 @@ foaf:homepage rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
               rbdoc:hasDocWeight "20"^^xsd:int .
 
 
+rb:BlankNodeCountStatistics rbdoc:hasLabelOverride "Blank nodes"@en .
+
+
+rb:DatatypeLiteralCountStatistics rbdoc:hasLabelOverride "Datatype literals"@en .
+
+
+rb:GraphCountStatistics rbdoc:hasLabelOverride "Graphs"@en .
+
+
+rb:IriCountStatistics rbdoc:hasLabelOverride "IRIs"@en .
+
+
+rb:LanguageLiteralCountStatistics rbdoc:hasLabelOverride "Language literals"@en .
+
+
+rb:LiteralCountStatistics rbdoc:hasLabelOverride "Literals"@en .
+
+
+rb:ObjectCountStatistics rbdoc:hasLabelOverride "Objects"@en .
+
+
+rb:PredicateCountStatistics rbdoc:hasLabelOverride "Predicates"@en .
+
+
+rb:QuotedTripleCountStatistics rbdoc:hasLabelOverride "Quoted triples"@en .
+
+
+rb:SimpleLiteralCountStatistics rbdoc:hasLabelOverride "Simple literals"@en .
+
+
+rb:StatementCountStatistics rbdoc:hasLabelOverride "Statements"@en .
+
+
+rb:SubjectCountStatistics rbdoc:hasLabelOverride "Subjects"@en .
+
+
 rb:conformsToRdf11 rbdoc:hasDocWeight "1100"^^xsd:int ;
                    rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
@@ -332,22 +368,26 @@ rb:isSupersetOfProfile rbdoc:hasDocWeight "20"^^xsd:int ;
                        rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
 
 
-rb:maximum rbdoc:hasDocWeight "2105"^^xsd:int .
+rb:maximum rbdoc:hasDocWeight "2105"^^xsd:int ;
+           rbdoc:hasLabelOverride "Max."@en .
 
 
 rb:mean rbdoc:hasDocWeight "2102"^^xsd:int .
 
 
-rb:minimum rbdoc:hasDocWeight "2104"^^xsd:int .
+rb:minimum rbdoc:hasLabelOverride "Min."@en ;
+           rbdoc:hasDocWeight "2104"^^xsd:int .
 
 
-rb:standardDeviation rbdoc:hasDocWeight "2103"^^xsd:int .
+rb:standardDeviation rbdoc:hasLabelOverride "St. dev."@en ;
+                     rbdoc:hasDocWeight "2103"^^xsd:int .
 
 
 rb:sum rbdoc:hasDocWeight "2100"^^xsd:int .
 
 
-rb:uniqueCount rbdoc:hasDocWeight "2101"^^xsd:int .
+rb:uniqueCount rbdoc:hasDocWeight "2101"^^xsd:int ;
+               rbdoc:hasLabelOverride "Unique"@en .
 
 
 rb:usesGeneralizedRdfDatasets rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
