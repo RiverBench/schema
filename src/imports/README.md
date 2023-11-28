@@ -3,3 +3,5 @@ This directory contains sources for ontologies that may be used for describing R
 Please refer to each ontology's source for licensing information. They are not licensed under the same license as RiverBench.
 
 The ontologies were edited for brevity by removing unnecessary properties to speed up documentation generation.
+
+The `data_prep` directory contains the SPARQL Update queries that were run to prepare the imports.

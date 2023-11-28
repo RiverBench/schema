@@ -85,7 +85,15 @@
     sh:path dcat:theme ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
-    sh:pattern "^https://w3id.org/riverbench/schema/theme#" ;
+    sh:pattern "^http://eurovoc.europa.eu/" ;
+    sh:node [
+      sh:property [
+        sh:path rdf:type ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:hasValue skos:Concept ;
+      ] ;
+    ] ;
   ] ,
   # Technical metadata
   [
