@@ -5,8 +5,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 rbt:conceptScheme a skos:ConceptScheme ;
-    skos:prefLabel "RiverBench topic scheme"@en ;
-    skos:definition "Collection of topic concepts used to annotate RiverBench datasets."@en ;
+    skos:prefLabel "RiverBench topic scheme (DEPRECATED)"@en ;
+    skos:definition "The RiverBench topic scheme used to be a collection of topic concepts used to annotate RiverBench datasets. It was deprecated in favor of using EuroVoc. Do not use this topic scheme – it will not be updated or maintained in the future."@en ;
     dcterms:license <https://spdx.org/licenses/CC-BY-4.0> ;
     dcterms:creator [
         foaf:homepage <https://github.com/Ostrzyciel> , <https://orcid.org/0000-0002-2543-9461> ;
