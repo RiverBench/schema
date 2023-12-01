@@ -213,6 +213,7 @@ rbdoc:isHiddenInDoc rdf:type owl:AnnotationProperty ;
 
 ###  http://rdfs.org/ns/void#vocabulary
 void:vocabulary rdf:type owl:ObjectProperty ;
+                rdfs:comment "A vocabulary that is used in the dataset."@en ;
                 rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
                 rbdoc:hasDocWeight "1010"@en ;
                 rbdoc:hasLabelOverride "Uses vocabulary"@en .
