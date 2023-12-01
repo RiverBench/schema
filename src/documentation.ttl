@@ -10,6 +10,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix rbdoc: <https://w3id.org/riverbench/schema/documentation#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/riverbench/schema/documentation> .
@@ -210,6 +211,13 @@ rbdoc:isHiddenInDoc rdf:type owl:AnnotationProperty ;
 #    Object Properties
 #################################################################
 
+###  http://rdfs.org/ns/void#vocabulary
+void:vocabulary rdf:type owl:ObjectProperty ;
+                rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                rbdoc:hasDocWeight "1010"@en ;
+                rbdoc:hasLabelOverride "Uses vocabulary"@en .
+
+
 ###  http://www.w3.org/ns/dcat#dataset
 dcat:dataset rdf:type owl:ObjectProperty ;
              rbdoc:hasDocGroup rbdoc:groupContent ;
@@ -396,10 +404,6 @@ rb:usesGeneralizedRdfDatasets rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
 
 rb:usesGeneralizedTriples rbdoc:hasDocWeight "1200"^^xsd:int ;
                           rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
-
-
-rb:usesOntology rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
-                rbdoc:hasDocWeight "1010"^^xsd:int .
 
 
 rb:usesRdfStar rbdoc:hasDocWeight "1210"^^xsd:int ;

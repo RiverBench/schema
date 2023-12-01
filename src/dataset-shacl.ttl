@@ -13,6 +13,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix stax: <https://w3id.org/stax/ontology#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 
 # Exactly one dataset per file
 :DatasetGraphShape
@@ -96,7 +97,7 @@
   ] ,
   # Technical metadata
   [
-    sh:path rb:usesOntology ;
+    sh:path void:vocabulary ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
   ] ,
