@@ -1,1 +1,3 @@
 catalog-v*.xml
+/out
+/doc_temp
