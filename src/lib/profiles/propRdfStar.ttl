@@ -1,0 +1,11 @@
+@prefix lib:     <https://w3id.org/riverbench/temp/lib#> .
+@prefix rb:      <https://w3id.org/riverbench/schema/metadata#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix stax:    <https://w3id.org/stax/ontology#> .
+
+lib:propRdfStar
+    sh:path rb:conformsToRdfStarDraft_20211217 ;
+    sh:hasValue true ;
+    sh:minCount 1 ;
+.

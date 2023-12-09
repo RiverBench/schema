@@ -1,0 +1,15 @@
+@prefix lib:     <https://w3id.org/riverbench/temp/lib#> .
+@prefix rb:      <https://w3id.org/riverbench/schema/metadata#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix stax:    <https://w3id.org/stax/ontology#> .
+
+lib:propFlatQuadStream
+    sh:path ( 
+        stax:hasStreamTypeUsage
+        stax:hasStreamType
+        [ sh:zeroOrMorePath skos:broader ]
+    ) ;
+    sh:hasValue stax:flatQuadStream ;
+    sh:minCount 1 ;
+.
