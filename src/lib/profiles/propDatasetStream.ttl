@@ -11,5 +11,4 @@ lib:propDatasetStream
         [ sh:zeroOrMorePath skos:broader ]
     ) ;
     sh:hasValue stax:datasetStream ;
-    sh:minCount 1 ;
 .

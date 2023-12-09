@@ -11,5 +11,4 @@ lib:propGroupedStream
         [ sh:zeroOrMorePath skos:broader ]
     ) ;
     sh:hasValue stax:groupedStream ;
-    sh:minCount 1 ;
 .

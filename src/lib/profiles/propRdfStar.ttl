@@ -7,5 +7,4 @@
 lib:propRdfStar
     sh:path rb:conformsToRdfStarDraft_20211217 ;
     sh:hasValue true ;
-    sh:minCount 1 ;
 .

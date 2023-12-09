@@ -7,5 +7,4 @@
 lib:propRdfStandard
     sh:path rb:conformsToRdf11 ;
     sh:hasValue true ;
-    sh:minCount 1 ;
 .

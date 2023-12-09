@@ -11,5 +11,4 @@ lib:propFlatStream
         [ sh:zeroOrMorePath skos:broader ]
     ) ;
     sh:hasValue stax:flatStream ;
-    sh:minCount 1 ;
 .

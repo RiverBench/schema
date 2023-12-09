@@ -7,5 +7,4 @@
 lib:propRdfNonstandard
     sh:path rb:usesRdfStar ;
     sh:hasValue false ;
-    sh:minCount 1 ;
 .

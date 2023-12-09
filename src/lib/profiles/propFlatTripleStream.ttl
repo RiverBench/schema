@@ -11,5 +11,4 @@ lib:propFlatTripleStream
         [ sh:zeroOrMorePath skos:broader ]
     ) ;
     sh:hasValue stax:flatTripleStream ;
-    sh:minCount 1 ;
 .

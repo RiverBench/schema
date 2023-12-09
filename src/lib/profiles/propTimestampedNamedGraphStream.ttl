@@ -11,5 +11,4 @@ lib:propTimestampedNamedGraphStream
         [ sh:zeroOrMorePath skos:broader ]
     ) ;
     sh:hasValue stax:timestampedNamedGraphStream ;
-    sh:minCount 1 ;
 .

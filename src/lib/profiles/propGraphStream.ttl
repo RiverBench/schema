@@ -11,5 +11,4 @@ lib:propGraphStream
         [ sh:zeroOrMorePath skos:broader ]
     ) ;
     sh:hasValue stax:graphStream ;
-    sh:minCount 1 ;
 .

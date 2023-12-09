@@ -6,8 +6,18 @@
 
 lib:nodeStreamDistribution
     sh:targetClass rb:Distribution ;
-    sh:property [
-        sh:path rb:hasDistributionType ;
-        sh:in ( rb:streamDistribution rb:jellyDistribution )
-    ]
+    sh:or (
+        [
+            sh:property [
+                sh:path rb:hasDistributionType ;
+                sh:hasValue rb:streamDistribution ;
+            ] ;
+        ]
+        [
+            sh:property [
+                sh:path rb:hasDistributionType ;
+                sh:hasValue rb:jellyDistribution ;
+            ] ;
+        ]
+    )
 .
