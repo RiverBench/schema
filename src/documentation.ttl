@@ -328,6 +328,14 @@ rb:conformsToRdfStarDraft_20211217 rbdoc:hasDocWeight "1110"^^xsd:int ;
                                    rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
+rb:hasDatasetShape rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                   rbdoc:hasDocWeight "2001"^^xsd:int .
+
+
+rb:hasDistributionShape rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
+                        rbdoc:hasDocWeight "2002"^^xsd:int .
+
+
 rb:hasDistributionType rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
                        rbdoc:hasDocWeight "1000"^^xsd:int .
 
@@ -336,7 +344,7 @@ rb:hasFileName rbdoc:hasDocWeight "12"^^xsd:int .
 
 
 rb:hasProfile rbdoc:hasDocGroup rbdoc:groupContent ;
-              rbdoc:hasDocWeight "1001"^^xsd:int .
+              rbdoc:hasDocWeight "1002"^^xsd:int .
 
 
 rb:hasRestriction rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
@@ -361,12 +369,20 @@ rb:hasSubjectShape rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
                    rbdoc:hasDocWeight "1021"^^xsd:int .
 
 
+rb:hasTask rbdoc:hasDocGroup rbdoc:groupContent ;
+           rbdoc:hasDocWeight "1001"^^xsd:int .
+
+
 rb:hasTemporalProperty rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
                        rbdoc:hasDocWeight "1020"^^xsd:int .
 
 
 rb:hasVersion rbdoc:hasDocWeight "3"^^xsd:int ;
               rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
+
+
+rb:inCategory rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+              rbdoc:hasDocWeight "19"^^xsd:int .
 
 
 rb:isSubsetOfProfile rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
