@@ -10,11 +10,11 @@ jobs:
     permissions: write-all
     steps:
       - name: "Checkout repository"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: schema
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
           cache: 'pip'
@@ -32,7 +32,6 @@ jobs:
         run: |
           python -m pylode.cli -i doc_temp/metadata.ttl -c false -o doc_temp/metadata.md -f md
           python -m pylode.cli -i doc_temp/documentation.ttl -c false -o doc_temp/documentation.md -f md
-          python -m pylode.cli -p vocpub -i doc_temp/theme.ttl -c false -o doc_temp/theme.md -f md
 
       - name: "Post-process the docs"
         uses: docker://ghcr.io/riverbench/ci-worker:main
@@ -43,7 +42,7 @@ jobs:
         run: tar -czf release/docs.tar.gz -C doc_out .
 
       - name: Upload files for the release
-        uses: ncipollo/release-action@v1.12.0
+        uses: ncipollo/release-action@v1.14.0
         with:
           prerelease: false
           draft: false
@@ -59,7 +58,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Trigger repository_dispatch"
-        uses: peter-evans/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.PAT_DOC_REPO_HOOKS }}
           repository: RiverBench/riverbench.github.io
