@@ -222,7 +222,7 @@ void:vocabulary rdf:type owl:ObjectProperty ;
 ###  http://www.w3.org/ns/dcat#dataset
 dcat:dataset rdf:type owl:ObjectProperty ;
              rbdoc:hasDocGroup rbdoc:groupContent ;
-             rbdoc:hasDocWeight "1000"^^xsd:int ;
+             rbdoc:hasDocWeight "1001"^^xsd:int ;
              rbdoc:hasLabelOverride "Has dataset"@en .
 
 
@@ -326,6 +326,10 @@ rb:conformsToRdf11 rbdoc:hasDocWeight "1100"^^xsd:int ;
 
 rb:conformsToRdfStarDraft_20211217 rbdoc:hasDocWeight "1110"^^xsd:int ;
                                    rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
+
+
+rb:hasCategory rbdoc:hasDocGroup rbdoc:groupContent ;
+               rbdoc:hasDocWeight "1000"^^xsd:int .
 
 
 rb:hasDatasetShape rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
