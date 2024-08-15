@@ -9,6 +9,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix irao: <http://ontology.ethereal.cz/irao/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @base <https://w3id.org/riverbench/schema/metadata> .
@@ -87,6 +88,10 @@ foaf:nick rdf:type owl:AnnotationProperty .
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://ontology.ethereal.cz/irao/hasFollowedProtocol
+irao:hasFollowedProtocol rdf:type owl:ObjectProperty .
+
 
 ###  http://purl.org/dc/terms/hasPart
 dct:hasPart rdfs:subPropertyOf dct:relation .
@@ -274,6 +279,41 @@ rb:targetCustom rdf:type owl:ObjectProperty ;
                 rdfs:label "Target custom"@en .
 
 
+###  https://w3id.org/riverbench/schema/metadata#usesProfile
+rb:usesProfile rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf rb:usesResource ;
+               rdfs:range rb:Profile ;
+               rdfs:comment "Indicates that the subject is using a specific RiverBench benchmark profile."@en ;
+               rdfs:label "Uses benchmark profile"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#usesResource
+rb:usesResource rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf dct:relation ;
+                rdfs:range dcat:Resource ;
+                rdfs:comment "Indicates that the subject is using the object (a dcat:Resource) in some way."@en ;
+                rdfs:label "Uses resource"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#usesSystemUnderTest
+rb:usesSystemUnderTest rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf rb:usesResource ;
+                       rdfs:comment "Indicates that the subject is using a specific system (e.g., an RDF store)."@en ;
+                       rdfs:label "Uses system under test"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#usesTask
+rb:usesTask rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf rb:usesResource ;
+            rdfs:range rb:Task ;
+            rdfs:comment "Indicates that the subject is using a specific RiverBench benchmark task."@en ;
+            rdfs:label "Uses benchmark task"@en .
+
+
+###  https://w3id.org/stax/ontology#hasStreamTypeUsage
+<https://w3id.org/stax/ontology#hasStreamTypeUsage> rdf:type owl:ObjectProperty .
+
+
 #################################################################
 #    Data properties
 #################################################################
@@ -399,6 +439,14 @@ rb:usesGeneralizedTriples rdf:type owl:DatatypeProperty ;
                           rdfs:seeAlso "https://www.w3.org/TR/rdf11-concepts/#section-generalized-rdf"@en .
 
 
+###  https://w3id.org/riverbench/schema/metadata#usesMetric
+rb:usesMetric rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Indicates a benchmark metric that is used in a benchmark. Values of this property should be specified as the name of the metric, in the exact spelling as in the corresponding task definition. For example: \"Loading throughput\"."@en ;
+              rdfs:label "Uses metric"@en .
+
+
 ###  https://w3id.org/riverbench/schema/metadata#usesRdfStar
 rb:usesRdfStar rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf rb:conformanceProperty ;
@@ -412,6 +460,22 @@ rb:usesRdfStar rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://ontology.ethereal.cz/irao/Benchmark
+irao:Benchmark rdf:type owl:Class .
+
+
+###  http://ontology.ethereal.cz/irao/Dataset
+irao:Dataset rdf:type owl:Class .
+
+
+###  http://ontology.ethereal.cz/irao/Protocol
+irao:Protocol rdf:type owl:Class .
+
+
+###  http://ontology.ethereal.cz/irao/System
+irao:System rdf:type owl:Class .
+
+
 ###  http://www.w3.org/ns/dcat#DatasetSeries
 dcat:DatasetSeries rdf:type owl:Class ;
                    rdfs:subClassOf dcat:Dataset ;
@@ -420,6 +484,29 @@ dcat:DatasetSeries rdf:type owl:Class ;
 
 ###  http://www.w3.org/ns/shacl#NodeShape
 sh:NodeShape rdf:type owl:Class .
+
+
+###  https://w3id.org/riverbench/schema/metadata#BenchmarkProtocol
+rb:BenchmarkProtocol rdf:type owl:Class ;
+                     rdfs:subClassOf irao:Protocol ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rb:usesProfile ;
+                                       owl:someValuesFrom rb:Profile
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rb:usesSystemUnderTest ;
+                                       owl:someValuesFrom rb:SystemUnderTest
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rb:usesTask ;
+                                       owl:someValuesFrom rb:Task
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rb:usesMetric ;
+                                       owl:someValuesFrom xsd:string
+                                     ] ;
+                     rdfs:comment "The parameters of a performed benchmark (rb:PerformedBenchmark). Instances of this class specify the RiverBench profile, task, systems, and metrics that were used in the benchmark."@en ;
+                     rdfs:label "Benchmark protocol"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#BlankNodeCountStatistics
@@ -452,7 +539,8 @@ rb:CustomShaclTarget rdf:type owl:Class ;
 
 ###  https://w3id.org/riverbench/schema/metadata#Dataset
 rb:Dataset rdf:type owl:Class ;
-           rdfs:subClassOf dcat:Dataset ,
+           rdfs:subClassOf irao:Dataset ,
+                           dcat:Dataset ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty <https://w3id.org/stax/ontology#hasStreamTypeUsage> ;
                              owl:someValuesFrom <https://w3id.org/stax/ontology#ConcreteRdfStreamType>
@@ -518,6 +606,17 @@ rb:ObjectCountStatistics rdf:type owl:Class ;
                          rdfs:subClassOf rb:Statistics ;
                          rdfs:comment "Statistics about the number of objects in the dataset."@en ;
                          rdfs:label "Object count statistics"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#PerformedBenchmark
+rb:PerformedBenchmark rdf:type owl:Class ;
+                      rdfs:subClassOf irao:Benchmark ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty irao:hasFollowedProtocol ;
+                                        owl:someValuesFrom rb:BenchmarkProtocol
+                                      ] ;
+                      rdfs:comment "A benchmark that was performed with a specific set of systems under test, using a RiverBench task and a RiverBench profile (collection of datasets). Instances of this class refer to, for examples, specific benchmarks described in research papers."@en ;
+                      rdfs:label "Performed benchmark"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#PredicateCountStatistics
@@ -596,6 +695,16 @@ rb:SubjectCountStatistics rdf:type owl:Class ;
                           rdfs:label "Subject count statistics"@en .
 
 
+###  https://w3id.org/riverbench/schema/metadata#SystemUnderTest
+rb:SystemUnderTest rdf:type owl:Class ;
+                   rdfs:subClassOf irao:System ,
+                                   dcat:Resource ;
+                   rdfs:comment """A system that is tested in a benchmark (for example, an RDF store).
+
+Instances of this class should at least have a label (rdfs:label) and a version tag (rb:hasVersion)."""@en ;
+                   rdfs:label "System under test"@en .
+
+
 ###  https://w3id.org/riverbench/schema/metadata#Task
 rb:Task rdf:type owl:Class ;
         rdfs:subClassOf rb:CategoryMember ;
@@ -615,6 +724,10 @@ rb:TopicStreamElementSplit rdf:type owl:Class ;
                            rdfs:subClassOf rb:StreamElementSplit ;
                            rdfs:comment "The elements correspond to different topics/subjects in the dataset."@en ;
                            rdfs:label "Stream elements split by topic"@en .
+
+
+###  https://w3id.org/stax/ontology#ConcreteRdfStreamType
+<https://w3id.org/stax/ontology#ConcreteRdfStreamType> rdf:type owl:Class .
 
 
 #################################################################
