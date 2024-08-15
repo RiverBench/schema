@@ -93,6 +93,10 @@ foaf:nick rdf:type owl:AnnotationProperty .
 irao:hasFollowedProtocol rdf:type owl:ObjectProperty .
 
 
+###  http://ontology.ethereal.cz/irao/hasMethodology
+irao:hasMethodology rdf:type owl:ObjectProperty .
+
+
 ###  http://purl.org/dc/terms/hasPart
 dct:hasPart rdfs:subPropertyOf dct:relation .
 
@@ -298,13 +302,15 @@ rb:usesResource rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#usesSystemUnderTest
 rb:usesSystemUnderTest rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf rb:usesResource ;
+                       rdfs:range rb:SystemUnderTest ;
                        rdfs:comment "Indicates that the subject is using a specific system (e.g., an RDF store)."@en ;
                        rdfs:label "Uses system under test"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#usesTask
 rb:usesTask rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf rb:usesResource ;
+            rdfs:subPropertyOf irao:hasMethodology ,
+                               rb:usesResource ;
             rdfs:range rb:Task ;
             rdfs:comment "Indicates that the subject is using a specific RiverBench benchmark task."@en ;
             rdfs:label "Uses benchmark task"@en .
@@ -466,6 +472,10 @@ irao:Benchmark rdf:type owl:Class .
 
 ###  http://ontology.ethereal.cz/irao/Dataset
 irao:Dataset rdf:type owl:Class .
+
+
+###  http://ontology.ethereal.cz/irao/Methodology
+irao:Methodology rdf:type owl:Class .
 
 
 ###  http://ontology.ethereal.cz/irao/Protocol
@@ -707,7 +717,8 @@ Instances of this class should at least have a label (rdfs:label) and a version 
 
 ###  https://w3id.org/riverbench/schema/metadata#Task
 rb:Task rdf:type owl:Class ;
-        rdfs:subClassOf rb:CategoryMember ;
+        rdfs:subClassOf irao:Methodology ,
+                        rb:CategoryMember ;
         rdfs:comment "Class for specific benchmark tasks (e.g., end-to-end streaming latency). Each task belongs to one benchmark category (rb:Category)."@en ;
         rdfs:label "Benchmark task"@en .
 
