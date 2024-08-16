@@ -5,8 +5,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cito: <http://purl.org/spar/cito/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix irao: <http://ontology.ethereal.cz/irao/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
@@ -41,6 +43,11 @@ _:genid1 foaf:homepage <https://github.com/Ostrzyciel> ,
 dcterms:conformsTo rdf:type owl:AnnotationProperty ;
                    rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                    rbdoc:isHiddenInDoc "true"^^xsd:boolean .
+
+
+###  http://purl.org/dc/terms/created
+dcterms:created rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+                rbdoc:hasDocWeight "20"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/creator
@@ -105,6 +112,11 @@ spdx:checksum rdf:type owl:AnnotationProperty ;
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
 rdf:type rdf:type owl:AnnotationProperty ;
          rbdoc:hasDocWeight "-1"^^xsd:int .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+             rbdoc:hasDocWeight "1"^^xsd:int .
 
 
 ###  http://www.w3.org/ns/dcat#byteSize
@@ -211,6 +223,21 @@ rbdoc:isHiddenInDoc rdf:type owl:AnnotationProperty ;
 #    Object Properties
 #################################################################
 
+###  http://ontology.ethereal.cz/irao/hasMeasuringSystem
+irao:hasMeasuringSystem rdf:type owl:ObjectProperty ;
+                        rbdoc:hasDocWeight "211"^^xsd:int .
+
+
+###  http://ontology.ethereal.cz/irao/hasProducedDataset
+irao:hasProducedDataset rdf:type owl:ObjectProperty ;
+                        rbdoc:hasDocWeight "210"^^xsd:int .
+
+
+###  http://purl.org/spar/cito/citesAsDataSource
+cito:citesAsDataSource rdf:type owl:ObjectProperty ;
+                       rbdoc:hasDocWeight "60"^^xsd:int .
+
+
 ###  http://rdfs.org/ns/void#vocabulary
 void:vocabulary rdf:type owl:ObjectProperty ;
                 rdfs:comment "A vocabulary that is used in the dataset."@en ;
@@ -276,8 +303,11 @@ rbdoc:groupTechnicalMetadata rdf:type owl:NamedIndividual ,
 #    Annotations
 #################################################################
 
+irao:hasFollowedProtocol rbdoc:hasDocWeight "100"^^xsd:int .
+
+
 dcat:seriesMember rbdoc:hasDocWeight "50"^^xsd:int ;
-                   rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
+                  rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
 
 
 foaf:homepage rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
@@ -427,8 +457,20 @@ rb:usesGeneralizedTriples rbdoc:hasDocWeight "1200"^^xsd:int ;
                           rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
 
 
+rb:usesMetric rbdoc:hasDocWeight "103"^^xsd:int .
+
+
+rb:usesProfile rbdoc:hasDocWeight "102"^^xsd:int .
+
+
 rb:usesRdfStar rbdoc:hasDocWeight "1210"^^xsd:int ;
                rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata .
+
+
+rb:usesSystemUnderTest rbdoc:hasDocWeight "104"^^xsd:int .
+
+
+rb:usesTask rbdoc:hasDocWeight "101"^^xsd:int .
 
 
 <https://w3id.org/stax/ontology#hasStreamTypeUsage> rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
