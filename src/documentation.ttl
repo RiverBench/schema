@@ -45,6 +45,12 @@ dcterms:conformsTo rdf:type owl:AnnotationProperty ;
                    rbdoc:isHiddenInDoc "true"^^xsd:boolean .
 
 
+###  http://purl.org/dc/terms/contributor
+dcterms:contributor rdf:type owl:AnnotationProperty ;
+                    rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+                    rbdoc:hasDocWeight "11"^^xsd:int .
+
+
 ###  http://purl.org/dc/terms/created
 dcterms:created rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
                 rbdoc:hasDocWeight "20"^^xsd:int .
@@ -77,7 +83,7 @@ dcterms:issued rdf:type owl:AnnotationProperty ;
 ###  http://purl.org/dc/terms/license
 dcterms:license rdf:type owl:AnnotationProperty ;
                 rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
-                rbdoc:hasDocWeight "11"^^xsd:int .
+                rbdoc:hasDocWeight "12"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/modified
@@ -89,13 +95,13 @@ dcterms:modified rdf:type owl:AnnotationProperty ;
 ###  http://purl.org/dc/terms/rights
 dcterms:rights rdf:type owl:AnnotationProperty ;
                rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
-               rbdoc:hasDocWeight "12"^^xsd:int .
+               rbdoc:hasDocWeight "13"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/source
 dcterms:source rdf:type owl:AnnotationProperty ;
                rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
-               rbdoc:hasDocWeight "12"^^xsd:int .
+               rbdoc:hasDocWeight "17"^^xsd:int .
 
 
 ###  http://purl.org/dc/terms/title
