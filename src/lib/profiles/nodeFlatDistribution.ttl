@@ -6,8 +6,18 @@
 
 lib:nodeFlatDistribution
     sh:targetClass rb:Distribution ;
-    sh:property [
-        sh:path rb:hasDistributionType ;
-        sh:hasValue rb:flatDistribution ;
-    ]
+    sh:or (
+        [
+            sh:property [
+                sh:path rb:hasDistributionType ;
+                sh:hasValue rb:flatDistribution ;
+            ] ;
+        ]
+        [
+            sh:property [
+                sh:path rb:hasDistributionType ;
+                sh:hasValue rb:jellyDistribution ;
+            ] ;
+        ]
+    )
 .
