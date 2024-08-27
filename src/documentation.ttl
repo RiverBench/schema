@@ -452,7 +452,7 @@ rb:sum rbdoc:hasDocWeight "2100"^^xsd:int .
 
 
 rb:uniqueCount rbdoc:hasDocWeight "2101"^^xsd:int ;
-               rbdoc:hasLabelOverride "Unique"@en .
+               rbdoc:hasLabelOverride "Unique (approx.)"@en .
 
 
 rb:usesGeneralizedRdfDatasets rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
