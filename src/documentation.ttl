@@ -387,10 +387,6 @@ rb:hasProfile rbdoc:hasDocGroup rbdoc:groupContent ;
               rbdoc:hasDocWeight "1002"^^xsd:int .
 
 
-rb:hasRestriction rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
-                  rbdoc:hasDocWeight "200"^^xsd:int .
-
-
 rb:hasStatistics rbdoc:hasDocWeight "2040"^^xsd:int .
 
 
