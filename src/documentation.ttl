@@ -320,6 +320,9 @@ foaf:homepage rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
               rbdoc:hasDocWeight "20"^^xsd:int .
 
 
+rb:AsciiControlCharacterCountStatistics rbdoc:hasLabelOverride "ASCII control chars"@en .
+
+
 rb:BlankNodeCountStatistics rbdoc:hasLabelOverride "Blank nodes"@en .
 
 
@@ -447,8 +450,8 @@ rb:standardDeviation rbdoc:hasLabelOverride "St. dev."@en ;
 rb:sum rbdoc:hasDocWeight "2100"^^xsd:int .
 
 
-rb:uniqueCount rbdoc:hasDocWeight "2101"^^xsd:int ;
-               rbdoc:hasLabelOverride "Unique (approx.)"@en .
+rb:uniqueCount rbdoc:hasLabelOverride "Unique (approx.)"@en ;
+               rbdoc:hasDocWeight "2101"^^xsd:int .
 
 
 rb:usesGeneralizedRdfDatasets rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;

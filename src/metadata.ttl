@@ -496,6 +496,13 @@ dcat:DatasetSeries rdf:type owl:Class ;
 sh:NodeShape rdf:type owl:Class .
 
 
+###  https://w3id.org/riverbench/schema/metadata#AsciiControlCharacterCountStatistics
+rb:AsciiControlCharacterCountStatistics rdf:type owl:Class ;
+                                        rdfs:subClassOf rb:Statistics ;
+                                        rdfs:comment "Statistics about the number of ASCII control characters except HT, LF, and CR (0x00-0x08, 0x0B, 0x0C, 0x0E-0x1F) in literals. These characters are allowed in RDF literals, but some serializations (e.g., RDF/XML) may not be able to encode them. See the documentation page \"Dataset compatibility notes\" for more details."@en ;
+                                        rdfs:label "ASCII control character count statistics"@en .
+
+
 ###  https://w3id.org/riverbench/schema/metadata#BenchmarkProtocol
 rb:BenchmarkProtocol rdf:type owl:Class ;
                      rdfs:subClassOf irao:Protocol ,
