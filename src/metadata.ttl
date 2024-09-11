@@ -423,8 +423,24 @@ rb:sum rdf:type owl:DatatypeProperty ;
 rb:uniqueCount rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf rb:statisticalProperty ;
                rdfs:range xsd:integer ;
-               rdfs:comment "Only used for count statistics. Indicates how many unique elements are in the entire dataset. The value is estimated with a Bloom filter and is accurate to ~1%."@en ;
-               rdfs:label "Unique count (estimated)"@en .
+               rdfs:comment "Only used for count statistics. Indicates how many unique elements are in the entire dataset. The value may be estimated using a HyperLogLog sketch. In that case, rb:uniqueCountLowerBound and rb:uniqueCountLowerBound properties are also set on the subject."@en ;
+               rdfs:label "Unique count"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#uniqueCountLowerBound
+rb:uniqueCountLowerBound rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf rb:statisticalProperty ;
+                         rdfs:range xsd:integer ;
+                         rdfs:comment "Lower bound estimate of how many unique elements are in the entire dataset. The estimate is given for a 95% confidence interval."@en ;
+                         rdfs:label "Unique count lower bound estimate"@en .
+
+
+###  https://w3id.org/riverbench/schema/metadata#uniqueCountUpperBound
+rb:uniqueCountUpperBound rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf rb:statisticalProperty ;
+                         rdfs:range xsd:integer ;
+                         rdfs:comment "Upper bound estimate of how many unique elements are in the entire dataset. The estimate is given for a 95% confidence interval."@en ;
+                         rdfs:label "Unique count upper bound estimate"@en .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#usesGeneralizedRdfDatasets
