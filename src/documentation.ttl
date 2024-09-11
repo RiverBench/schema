@@ -326,6 +326,9 @@ rb:AsciiControlCharacterCountStatistics rbdoc:hasLabelOverride "ASCII control ch
 rb:BlankNodeCountStatistics rbdoc:hasLabelOverride "Blank nodes"@en .
 
 
+rb:DatatypeCountStatistics rbdoc:hasLabelOverride "Datatypes"@en .
+
+
 rb:DatatypeLiteralCountStatistics rbdoc:hasLabelOverride "Datatype literals"@en .
 
 
