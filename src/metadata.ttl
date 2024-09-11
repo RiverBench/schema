@@ -566,6 +566,13 @@ rb:Dataset rdf:type owl:Class ;
            rdfs:label "RiverBench dataset"@en .
 
 
+###  https://w3id.org/riverbench/schema/metadata#DatatypeCountStatistics
+rb:DatatypeCountStatistics rdf:type owl:Class ;
+                           rdfs:subClassOf rb:Statistics ;
+                           rdfs:comment "Statistics about the count of datatypes (NOT datatype literals) in the dataset. This statistic does not include rdf:langString and xsd:string."@en ;
+                           rdfs:label "Datatype count statistics"@en .
+
+
 ###  https://w3id.org/riverbench/schema/metadata#DatatypeLiteralCountStatistics
 rb:DatatypeLiteralCountStatistics rdf:type owl:Class ;
                                   rdfs:subClassOf rb:Statistics ;
