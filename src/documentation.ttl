@@ -326,6 +326,9 @@ rb:AsciiControlCharacterCountStatistics rbdoc:hasLabelOverride "ASCII control ch
 rb:BlankNodeCountStatistics rbdoc:hasLabelOverride "Blank nodes"@en .
 
 
+rb:ByteDensityStatistics rbdoc:hasLabelOverride "Bytes per statement"@en .
+
+
 rb:DatatypeCountStatistics rbdoc:hasLabelOverride "Datatypes"@en .
 
 
@@ -453,8 +456,8 @@ rb:standardDeviation rbdoc:hasLabelOverride "St. dev."@en ;
 rb:sum rbdoc:hasDocWeight "2100"^^xsd:int .
 
 
-rb:uniqueCount rbdoc:hasLabelOverride "Unique"@en ;
-               rbdoc:hasDocWeight "2101"^^xsd:int .
+rb:uniqueCount rbdoc:hasDocWeight "2101"^^xsd:int ;
+               rbdoc:hasLabelOverride "Unique"@en .
 
 
 rb:usesGeneralizedRdfDatasets rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;

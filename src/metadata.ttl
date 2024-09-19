@@ -549,6 +549,15 @@ rb:BlankNodeCountStatistics rdf:type owl:Class ;
                             rdfs:label "Blank node count statistics"@en .
 
 
+###  https://w3id.org/riverbench/schema/metadata#ByteDensityStatistics
+rb:ByteDensityStatistics rdf:type owl:Class ;
+                         rdfs:subClassOf rb:Statistics ;
+                         rdfs:comment """Statistics about the number of bytes needed to encode a single statement in the N-Triples/N-Quads formats. One newline character is included for each statement.
+
+This statistic can be used as a proxy to estimate how much \"information\" is in an average statement in the dataset when it is uncompressed."""@en ;
+                         rdfs:label "Bytes per triple (byte density) statistics"@en .
+
+
 ###  https://w3id.org/riverbench/schema/metadata#Category
 rb:Category rdf:type owl:Class ;
             rdfs:subClassOf dcat:Resource ;
