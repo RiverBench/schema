@@ -41,8 +41,7 @@ _:genid1 foaf:homepage <https://github.com/Ostrzyciel> ,
 
 ###  http://purl.org/dc/terms/conformsTo
 dcterms:conformsTo rdf:type owl:AnnotationProperty ;
-                   rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
-                   rbdoc:isHiddenInDoc "true"^^xsd:boolean .
+                   rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
 
 
 ###  http://purl.org/dc/terms/contributor
@@ -316,6 +315,11 @@ dcat:seriesMember rbdoc:hasDocWeight "50"^^xsd:int ;
                   rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
 
 
+dcat:version rbdoc:hasDocWeight "3"^^xsd:int ;
+             rbdoc:hasLabelOverride "Has version"@en ;
+             rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
+
+
 foaf:homepage rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
               rbdoc:hasDocWeight "20"^^xsd:int .
 
@@ -423,7 +427,8 @@ rb:hasTemporalProperty rbdoc:hasDocGroup rbdoc:groupTechnicalMetadata ;
 
 
 rb:hasVersion rbdoc:hasDocWeight "3"^^xsd:int ;
-              rbdoc:hasDocGroup rbdoc:groupGeneralInfo .
+              rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;
+              rbdoc:isHiddenInDoc "true"^^xsd:boolean .
 
 
 rb:inCategory rbdoc:hasDocGroup rbdoc:groupGeneralInfo ;

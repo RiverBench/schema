@@ -324,6 +324,11 @@ rb:usesTask rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
+###  http://www.w3.org/ns/dcat#version
+dcat:version rdf:type owl:DatatypeProperty ;
+             owl:equivalentProperty rb:hasVersion .
+
+
 ###  https://w3id.org/riverbench/schema/metadata#conformanceProperty
 rb:conformanceProperty rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf owl:topDataProperty ;
@@ -367,9 +372,11 @@ rb:hasStreamElementCount rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/riverbench/schema/metadata#hasVersion
 rb:hasVersion rdf:type owl:DatatypeProperty ;
+              owl:equivalentProperty dcat:version ;
               rdfs:range xsd:string ;
-              rdfs:comment "Version tag of an artifact"@en ;
-              rdfs:label "Has version"@en .
+              rdfs:comment "Version tag of an artifact. This property is deprecated since RiverBench schema release 2.2.0 and will be removed in version 2.3.0. Use dcat:version instead."@en ;
+              rdfs:label "Has version (deprecated)"@en ;
+              owl:deprecated "true"^^xsd:boolean .
 
 
 ###  https://w3id.org/riverbench/schema/metadata#maximum
