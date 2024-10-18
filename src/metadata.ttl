@@ -366,6 +366,7 @@ rb:hasFileName rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#hasStreamElementCount
 rb:hasStreamElementCount rdf:type owl:DatatypeProperty ;
                          rdfs:subPropertyOf owl:topDataProperty ;
+                         rdfs:range xsd:integer ;
                          rdfs:comment "Number of elements in the stream"@en ;
                          rdfs:label "Has stream element count"@en .
 
@@ -382,7 +383,8 @@ rb:hasVersion rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#maximum
 rb:maximum rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf rb:statisticalProperty ;
-           rdfs:range xsd:decimal ;
+           rdfs:range xsd:double ,
+                      xsd:long ;
            rdfs:comment "Maximum value of a distribution"@en ;
            rdfs:label "Maximum"@en .
 
@@ -390,7 +392,7 @@ rb:maximum rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#mean
 rb:mean rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf rb:statisticalProperty ;
-        rdfs:range xsd:decimal ;
+        rdfs:range xsd:double ;
         rdfs:comment "Arithmetic mean of a distribution"@en ;
         rdfs:label "Mean"@en .
 
@@ -398,7 +400,8 @@ rb:mean rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#minimum
 rb:minimum rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf rb:statisticalProperty ;
-           rdfs:range xsd:decimal ;
+           rdfs:range xsd:double ,
+                      xsd:long ;
            rdfs:comment "Minimum value of a distribution"@en ;
            rdfs:label "Minimum"@en .
 
@@ -406,7 +409,7 @@ rb:minimum rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#standardDeviation
 rb:standardDeviation rdf:type owl:DatatypeProperty ;
                      rdfs:subPropertyOf rb:statisticalProperty ;
-                     rdfs:range xsd:decimal ;
+                     rdfs:range xsd:double ;
                      rdfs:comment "Standard deviation of a distribution"@en ;
                      rdfs:label "Standard deviation"@en .
 
@@ -421,7 +424,8 @@ rb:statisticalProperty rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#sum
 rb:sum rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf rb:statisticalProperty ;
-       rdfs:range xsd:decimal ;
+       rdfs:range xsd:double ,
+                  xsd:long ;
        rdfs:comment "Sum of all values in the distribution. In statistics about counts, this corresponds to the total number of given elements in the dataset."@en ;
        rdfs:label "Sum"@en .
 
@@ -429,7 +433,7 @@ rb:sum rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#uniqueCount
 rb:uniqueCount rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf rb:statisticalProperty ;
-               rdfs:range xsd:integer ;
+               rdfs:range xsd:long ;
                rdfs:comment "Only used for count statistics. Indicates how many unique elements are in the entire dataset. The value may be estimated using a HyperLogLog sketch. In that case, rb:uniqueCountLowerBound and rb:uniqueCountLowerBound properties are also set on the subject."@en ;
                rdfs:label "Unique count"@en .
 
@@ -437,7 +441,7 @@ rb:uniqueCount rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#uniqueCountLowerBound
 rb:uniqueCountLowerBound rdf:type owl:DatatypeProperty ;
                          rdfs:subPropertyOf rb:statisticalProperty ;
-                         rdfs:range xsd:integer ;
+                         rdfs:range xsd:long ;
                          rdfs:comment "Lower bound estimate of how many unique elements are in the entire dataset. The estimate is given for a 95% confidence interval."@en ;
                          rdfs:label "Unique count lower bound estimate"@en .
 
@@ -445,7 +449,7 @@ rb:uniqueCountLowerBound rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/riverbench/schema/metadata#uniqueCountUpperBound
 rb:uniqueCountUpperBound rdf:type owl:DatatypeProperty ;
                          rdfs:subPropertyOf rb:statisticalProperty ;
-                         rdfs:range xsd:integer ;
+                         rdfs:range xsd:long ;
                          rdfs:comment "Upper bound estimate of how many unique elements are in the entire dataset. The estimate is given for a 95% confidence interval."@en ;
                          rdfs:label "Unique count upper bound estimate"@en .
 
